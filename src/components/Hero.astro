@@ -1,0 +1,88 @@
+---
+import line from "../assets/formes/Ligne-purple.png";
+export interface Props {
+  page: string;
+  title: string;
+}
+const { title, page } = Astro.props;
+---
+
+<section class={`hero hero--${page}`}>
+  <div class="container">
+    <div class="hero_text">
+      <h1
+        class="hero_title hero_title"
+        data-aos="zoom-in-down"
+        data-aos-duration="1000"
+      >
+        {title}
+      </h1>
+      <img class="hero_line" src={line} alt="web3 communities" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-top: 10vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: var(--secondary-color);
+    height: 50vh;
+  }
+
+  .hero--concept {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0)),
+      url("../assets/background/art.png");
+    height: 60vh;
+    background-size: auto;
+    background-position: inherit;
+  }
+
+  .container--hero {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 70%;
+    margin: auto;
+  }
+
+  .hero_title {
+    text-align: center;
+    font-weight: 800;
+  }
+
+  .hero_subtitle {
+    padding: 30px 0;
+    font-weight: 600;
+    font-size: 1.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .hero_line {
+    position: relative;
+    width: 60%;
+    pointer-events: none;
+    margin: 10px;
+  }
+  .hero_line img {
+    object-fit: fill;
+  }
+
+  .page-intro {
+    height: 40vh;
+  }
+
+  .page-intro .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
