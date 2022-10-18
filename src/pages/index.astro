@@ -1,13 +1,43 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Showcase from "../components/Showcase.astro";
+import FlexSection from "../components/FlexSection.astro";
+import concept from "../assets/pictures/concept-section.png";
+import offer from "../assets/pictures/solution-section.png";
 ---
 
-<Layout title="Kodao.io" language="en">
+<Layout page="home" title="Kodao.io">
   <Showcase
     title="Involve your community through Web3"
     description="Endless possibilities are waiting for you"
     ctaText="Book a Demo"
     downText="Discover"
+  />
+  <a class="anchor" id="concept"></a>
+  <FlexSection
+    title="concept"
+    heading="The future of community involvement"
+    description="Blockchain technology and NFTs allow more freedom and power to end users, creating a new way of interaction and collaboration between organizations and their community."
+    white={true}
+    image={concept}
+    items={[
+      "Create and sell your digital art (NFT) to your audience",
+      "Grant exclusive access and rights to make them members",
+      "Co-create to involve them in your project",
+      "Reward your most engaged members",
+    ]}
+  />
+  <FlexSection
+    title="offers"
+    heading="Kodao.io helps you create and develop your Web3 project"
+    description="Starting a web3 project can be frightening as the tools and the technology evolve at a very high pace. At Kodao.io, our goal is to help you get started in the best possible conditions.."
+    image={offer}
+    reversed={true}
+    items={[
+      "Offer a unique experience to your community members with the power of Web3",
+      "For a simple and efficient start, opt for a turnkey solution with the Web3 Starter Pack",
+      "Develop your own Web3 ecosystem with our ailor-made services",
+      "Get a custom support throughout the creation of your project.",
+    ]}
   />
 </Layout>

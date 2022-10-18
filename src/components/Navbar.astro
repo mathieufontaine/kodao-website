@@ -4,29 +4,11 @@ import englishFlag from "../assets/language/united-kingdom.png";
 import frenchFlag from "../assets/language/france.png";
 
 export interface Props {
-  language: string;
+  page: string;
+  fr?: boolean;
 }
-const { language } = Astro.props;
 
-let page = "home";
-// const url = window.location.href;
-// const getPageName = () => {
-//   if (url.includes("offers") || url.includes("offres")) {
-//     page = "offers";
-//     return;
-//   } else if (url.includes("concept")) {
-//     page = "concept";
-//     return;
-//   } else if (url.includes("contact")) {
-//     page = "contact";
-//     return;
-//   } else if (url.includes("faq")) {
-//     page = "faq";
-//     return;
-//   } else page = "home";
-// };
-
-// getPageName();
+const { fr = false, page } = Astro.props;
 ---
 
 <header class="header">
@@ -35,22 +17,53 @@ let page = "home";
   </a>
   <nav class="navbar">
     <ul>
-      <li class={"navbar_item" + page === "home" && "navbar_item--active"}>
-        <a href="/" id="nav-web3" class="navbar_link">Home</a>
+      <li
+        class={page !== "home"
+          ? "navbar_item"
+          : "navbar_item navbar_item--active"}
+      >
+        <a href={fr ? "fr/" : "/"} id="nav-web3" class="navbar_link">Home</a>
       </li>
-      <li class={"navbar_item" + page === "concept" && "navbar_item--active"}>
-        <a href="./concept" id="nav-concept" class="navbar_link">Concept</a>
-      </li>
-      <li class={"navbar_item" + page === "offers" && "navbar_item--active"}>
-        <a href="./offers" id="nav-offer" class="navbar_link"
-          >{language === "en" ? "Offers" : "Offres"}</a
+      <li
+        class={page !== "concept"
+          ? "navbar_item"
+          : "navbar_item navbar_item--active"}
+      >
+        <a
+          href={fr ? "fr/concept" : "/concept"}
+          id="nav-concept"
+          class="navbar_link">Concept</a
         >
       </li>
-      <li class={"navbar_item" + page === "contact" && "navbar_item--active"}>
-        <a href="./contact" id="nav-contact" class="navbar_link">Contact</a>
+      <li
+        class={page !== "offers"
+          ? "navbar_item"
+          : "navbar_item navbar_item--active"}
+      >
+        <a
+          href={fr ? "fr/offers" : "/offers"}
+          id="nav-offer"
+          class="navbar_link">{fr ? "Offres" : "Offers"}</a
+        >
       </li>
-      <li class={"navbar_item" + page === "faq" && "navbar_item--active"}>
-        <a href="./faq" id="nav-faq" class="navbar_link">FAQ</a>
+      <li
+        class={page !== "contact"
+          ? "navbar_item"
+          : "navbar_item navbar_item--active"}
+      >
+        <a
+          href={fr ? "fr/contact" : "/contact"}
+          id="nav-contact"
+          class="navbar_link">Contact</a
+        >
+      </li>
+      <li
+        class={page !== "faq"
+          ? "navbar_item"
+          : "navbar_item navbar_item--active"}
+      >
+        <a href={fr ? "fr/faq" : "/faq"} id="nav-faq" class="navbar_link">FAQ</a
+        >
       </li>
       <li class="navbar_item navbar_item--blog">
         <a
@@ -64,7 +77,7 @@ let page = "home";
   </nav>
   <div class="language">
     {
-      language === "fr" ? (
+      fr ? (
         <a href="#" class="language_link">
           <img class="language_img" src={englishFlag} alt="english flag" />
         </a>
@@ -80,6 +93,54 @@ let page = "home";
     <i class="bx bx-x close"></i>
   </div>
 </header>
+<!------Menu Mobile-------->
+<nav class="menu">
+  <ul class="menu_list">
+    <li class="menu_item menu_item--active">
+      <a href={fr ? "fr/" : "/"} id="nav-web3" class="menu_link">Home</a>
+    </li>
+    <li class="menu_item">
+      <a
+        href={fr ? "fr/concept" : "/concept"}
+        id="nav-concept"
+        class="menu_link">Concept</a
+      >
+    </li>
+    <li class="menu_item">
+      <a href={fr ? "fr/offers" : "/offers"} id="nav-offer" class="menu_link"
+        >Offers</a
+      >
+    </li>
+    <li class="menu_item">
+      <a
+        href={fr ? "fr/contact" : "/contact"}
+        id="nav-contact"
+        class="menu_link">Contact</a
+      >
+    </li>
+    <li class="menu_item">
+      <a href={fr ? "fr/faq" : "/faq"} id="nav-faq" class="menu_link">FAQ</a>
+    </li>
+    <li class="menu_item menu_item--blog">
+      <a href="https://blog.kodao.io" id="nav-blog" class="menu_link">Blog</a>
+    </li>
+    <li class="menu_item menu_item--social">
+      <p class="social_title">Follow Us</p>
+      <div class="social-links">
+        <a href="https://discord.gg/BXtp6szz7C"
+          ><i class="fab fa-discord"></i>
+        </a>
+        <a href="https://twitter.com/kodao_io"
+          ><i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </li>
+  </ul>
+</nav>
+<a href="./contact.html" class="button button--fixed" type="button" id="cta">
+  {fr ? "Réserver une démo" : "Book a demo"}
+</a>
+<button id="topBtn"><i class="fa-solid fa-angle-up"></i></button>
 
 <style>
   /* Header */
@@ -147,7 +208,7 @@ let page = "home";
     font-size: 1.5rem;
   }
 
-  .navbar_link--active {
+  .navbar_item--active .navbar_link {
     color: var(--accent-color);
   }
 
