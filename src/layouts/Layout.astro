@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import "../styles/global.css";
 export interface Props {
@@ -15,7 +16,7 @@ const { page, title, fr = false } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <meta
       property="og:title"
@@ -35,18 +36,86 @@ const { page, title, fr = false } = Astro.props;
       content="https://www.kodao.io/assets/pictures/web3-faq.jpeg"
     />
     <meta property="og:url" content="https://www.kodao.io" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <!-- Javascript -->
     <script
       src="https://kit.fontawesome.com/39251cc2ac.js"
       crossorigin="anonymous"
     ></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../scripts/menu.js" defer></script>
     <title>{title}</title>
   </head>
 
   <body>
     <Navbar fr={fr} page={page} />
     <slot />
+    <Footer fr={fr} />
+    <script>
+      import AOS from "aos";
+      import "aos/dist/aos.css";
+
+      const button = document.querySelector(".hamburger");
+      const menu = document.querySelector(".menu");
+      const containers = document.querySelectorAll(".container");
+
+      containers.forEach((container) =>
+        container.addEventListener("click", () => {
+          if (menu.classList.contains("menu--active")) {
+            toggleMenu();
+          }
+        })
+      );
+
+      function toggleMenu() {
+        button.classList.toggle("hamburger--active");
+        menu.classList.toggle("menu--active");
+      }
+
+      function showMenu() {
+        if (window.innerWidth > 950) {
+          button.style.display = "none";
+          menu.style.display = "none";
+        } else {
+          button.style.display = "block";
+          menu.style.display = "block";
+        }
+      }
+
+      window.onload = () => showMenu();
+      window.addEventListener("resize", showMenu);
+      button.addEventListener("click", toggleMenu);
+
+      //* Go to top button //
+
+      //Get the button
+      const topBtn = document.getElementById("topBtn");
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 2000 ||
+          document.documentElement.scrollTop > 2000
+        ) {
+          topBtn.style.display = "block";
+        } else {
+          topBtn.style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+
+      topBtn.addEventListener("click", topFunction);
+      AOS.init();
+    </script>
   </body>
 </html>

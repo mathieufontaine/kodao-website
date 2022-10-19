@@ -1,3 +1,5 @@
+import AOS from "aos";
+
 const button = document.querySelector(".hamburger");
 const menu = document.querySelector(".menu");
 const containers = document.querySelectorAll(".container");
@@ -56,3 +58,4 @@ function topFunction() {
 }
 
 topBtn.addEventListener("click", topFunction);
+AOS.init();

@@ -7,7 +7,7 @@ export interface Props {
 const { title, page } = Astro.props;
 ---
 
-<section class={`hero hero--${page}`}>
+<section class={`section hero hero--${page}`}>
   <div class="container">
     <div class="hero_text">
       <h1
@@ -17,7 +17,9 @@ const { title, page } = Astro.props;
       >
         {title}
       </h1>
-      <img class="hero_line" src={line} alt="web3 communities" />
+      <div class="hero_line">
+        <img class="hero_line" src={line} alt="web3 communities" />
+      </div>
     </div>
   </div>
 </section>
@@ -50,6 +52,14 @@ const { title, page } = Astro.props;
     margin: auto;
   }
 
+  .hero_text {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .hero_title {
     text-align: center;
     font-weight: 800;
@@ -66,10 +76,12 @@ const { title, page } = Astro.props;
   }
 
   .hero_line {
+    display: flex;
+    align-items: center;
     position: relative;
-    width: 60%;
+    width: 70%;
     pointer-events: none;
-    margin: 10px;
+    margin: 10px auto;
   }
   .hero_line img {
     object-fit: fill;

@@ -2,11 +2,13 @@
 export interface Props {
   title: string;
   heading: string;
-  description: string;
+  description?: string;
   image: string;
   white?: boolean;
   reversed?: boolean;
   items?: string[];
+  bullets?: string;
+  cta?: string;
 }
 const {
   title,
@@ -16,6 +18,8 @@ const {
   white,
   reversed = false,
   items,
+  bullets,
+  cta,
 } = Astro.props;
 ---
 
@@ -23,7 +27,7 @@ const {
   <div class="container">
     <p class="title">{title}</p>
     <h2 class="heading">{heading}</h2>
-    <p class="text">{description}</p>
+    {description && <p class="text">{description}</p>}
     <div class="flex">
       <div
         class="flex_text"
@@ -45,9 +49,7 @@ const {
             ))
           }
         </ul>
-        <a href="./concept.html" class="button button--flex" type="button">
-          <span class="button_text">Discover our <b>{title}</b></span>
-        </a>
+        <slot />
       </div>
       <div
         class={`flex_img ${reversed && "flex_img--first"}`}
@@ -105,7 +107,7 @@ const {
   }
   .flex_list {
     list-style: none;
-    padding: 0 10px 30px;
+    padding: 0 30px;
   }
 
   .flex_key {

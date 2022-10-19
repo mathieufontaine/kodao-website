@@ -1,0 +1,87 @@
+---
+export interface Props {
+  title: string;
+  btnText: string;
+  btnHref: string;
+  btnText2?: string;
+  btnHref2?: string;
+  white?: boolean;
+}
+
+const {
+  title,
+  btnText,
+  btnHref,
+  btnText2,
+  btnHref2,
+  white = false,
+} = Astro.props;
+---
+
+<section class={white ? "section section--white" : "section"}>
+  <div class="container">
+    <div class="cta">
+      <div class="cta_text">
+        <h2 class="cta_title">{title}</h2>
+        <slot />
+      </div>
+      <div class="cta_btn">
+        {
+          btnText2 && (
+            <a
+              href={btnHref2}
+              class="button button--cta button--primary"
+              type="button"
+            >
+              <span class="button_text">{btnText2}</span>
+            </a>
+          )
+        }
+        <a href={btnHref} class="button button--cta" type="button">
+          <span class="button_text">{btnText}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta {
+    display: grid;
+    width: 80%;
+  }
+
+  .cta_title {
+    padding-bottom: 10px;
+  }
+  .cta--grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .cta--inverse {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .cta_text {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .cta--grid .cta_text,
+  .cta--inverse .cta_text {
+    text-align: left;
+  }
+
+  .cta_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .cta_btn--col {
+    flex-direction: column;
+  }
+</style>
