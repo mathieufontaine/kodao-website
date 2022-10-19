@@ -1,10 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import FlexSection from "../components/FlexSection.astro";
-import Intro from "../components/Intro.astro";
-import Card from "../components/Card.astro";
-import Cta from "../components/Cta.astro";
+
+import Hero from "../components/sections/Hero.astro";
+import Section from "../components/sections/Section.astro";
+import Intro from "../components/sections/Intro.astro";
+import Card from "../components/cards/Card.astro";
+import Cta from "../components/sections/Cta.astro";
+
 import info from "../assets/Illustrations/infographie_web3_en.svg";
 import imgCard1 from "../assets/pictures/web3-strategy.jpeg";
 import imgCard2 from "../assets/pictures/funnel.jpeg";
@@ -15,12 +17,11 @@ import banner from "../assets/background/web3_kodao.jpeg";
 
 <Layout title="Kodao.io - Concept" page="concept">
   <Hero title="A unique experience for you and your community" page="concept" />
-  <FlexSection
+  <Section
     title="The Web3"
     heading="From consumer to co-owner"
     white={true}
     image={info}
-    bullets="square"
     items={[
       "Web 1.0 was about posting content online.",
       "Web 2.0 has allowed communities to interact with brands or creators through social platforms (Youtube, Instagram, Twitter, etc.).",

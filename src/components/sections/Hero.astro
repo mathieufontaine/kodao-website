@@ -1,5 +1,5 @@
 ---
-import line from "../assets/formes/Ligne-purple.png";
+import line from "../../assets/formes/Ligne-purple.png";
 export interface Props {
   page: string;
   title: string;
@@ -36,12 +36,17 @@ const { title, page } = Astro.props;
 
   .hero--concept {
     background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0)),
-      url("../assets/background/art.png");
+      url("../../assets/background/art.png");
     height: 60vh;
     background-size: auto;
     background-position: inherit;
   }
 
+  .hero--offers {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+      url("../../assets/background/festival.jpeg");
+    background-position: center center;
+  }
   .container--hero {
     height: 100%;
     display: flex;

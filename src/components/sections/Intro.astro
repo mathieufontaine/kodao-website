@@ -1,14 +1,14 @@
 ---
 export interface Props {
-  title: string;
+  title?: string;
   heading: string;
 }
 
-const { title, heading } = Astro.props;
+const { title = false, heading } = Astro.props;
 ---
 
 <div class="intro">
-  <p class="intro_title">{title}</p>
+  {title && <p class="intro_title">{title}</p>}
   <h2 class="intro_heading">{heading}</h2>
   <slot />
 </div>

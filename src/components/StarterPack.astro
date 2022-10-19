@@ -1,0 +1,57 @@
+---
+import CardStarter from "../components/cards/CardStarter.astro";
+
+interface Offer {
+  index: number;
+  title: string;
+  img: string;
+  list: string[];
+}
+
+export interface Props {
+  offers: Offer[];
+}
+
+const { offers } = Astro.props;
+---
+
+<div class="card_wrapper">
+  {
+    offers.map((offer) => (
+      <CardStarter index={offer.index} title={offer.title} img={offer.img}>
+        <ul>
+          {offer.list.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </CardStarter>
+    ))
+  }
+</div>
+
+<style>
+  .card_wrapper {
+    display: flex;
+    width: 100%;
+    padding: 20px 10px;
+    transition: 1s all ease-in-out;
+    gap: 20px;
+    flex-wrap: nowrap;
+    height: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .card_wrapper--mobile {
+    display: none;
+  }
+  ul {
+    margin: 0 0 0 20px;
+    list-style-type: square;
+  }
+  li {
+    line-height: 20px;
+    font-size: 1.2rem;
+    font-weight: 100;
+    margin-bottom: 10px;
+  }
+</style>

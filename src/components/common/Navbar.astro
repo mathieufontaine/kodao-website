@@ -1,7 +1,7 @@
 ---
-import logo from "../assets/logo/logo-white.svg";
-import englishFlag from "../assets/language/united-kingdom.png";
-import frenchFlag from "../assets/language/france.png";
+import logo from "../../assets/logo/logo-white.svg";
+import englishFlag from "../../assets/language/united-kingdom.png";
+import frenchFlag from "../../assets/language/france.png";
 
 export interface Props {
   page: string;
@@ -78,11 +78,11 @@ const { fr = false, page } = Astro.props;
   <div class="language">
     {
       fr ? (
-        <a href="#" class="language_link">
+        <a href="/" class="language_link">
           <img class="language_img" src={englishFlag} alt="english flag" />
         </a>
       ) : (
-        <a href="/fr/index" class="language_link">
+        <a href="/fr" class="language_link">
           <img class="language_img" src={frenchFlag} alt="drapeau français" />
         </a>
       )
@@ -376,3 +376,36 @@ const { fr = false, page } = Astro.props;
     opacity: 0;
   }
 </style>
+
+<script>
+  const button = document.querySelector(".hamburger");
+  const menu = document.querySelector(".menu");
+  const containers = document.querySelectorAll(".container");
+
+  containers.forEach((container) =>
+    container.addEventListener("click", () => {
+      if (menu.classList.contains("menu--active")) {
+        toggleMenu();
+      }
+    })
+  );
+
+  function toggleMenu() {
+    button.classList.toggle("hamburger--active");
+    menu.classList.toggle("menu--active");
+  }
+
+  function showMenu() {
+    if (window.innerWidth > 950) {
+      button.style.display = "none";
+      menu.style.display = "none";
+    } else {
+      button.style.display = "block";
+      menu.style.display = "block";
+    }
+  }
+
+  window.onload = () => showMenu();
+  window.addEventListener("resize", showMenu);
+  button.addEventListener("click", toggleMenu);
+</script>

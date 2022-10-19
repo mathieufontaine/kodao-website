@@ -1,0 +1,77 @@
+---
+export interface Props {
+  index: number;
+  title: string;
+  img: string;
+}
+
+const { index, title, img } = Astro.props;
+---
+
+<div
+  class="card"
+  data-aos="fade-up"
+  data-aos-duration="700"
+  data-aos-anchor-placement="center-bottom"
+>
+  <div class="card_number">{index}</div>
+  <div class="card_img">
+    <img src={img} alt={title} />
+  </div>
+  <h4 class="card_name">{title}</h4>
+  <div class="card_text">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .card {
+    display: grid;
+    grid-template-rows: 50px 120px 80px auto;
+    grid-template-columns: 1fr;
+    width: 100%;
+    box-shadow: 5px 5px 10px 0px #33065680;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+
+  .card_number {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .card_name {
+    padding: 20px;
+    font-size: 1.8rem;
+    background-color: black;
+    color: var(--secondary-color);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card_img {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, #330656 0%, black 80%);
+  }
+
+  .card_img img {
+    object-fit: contain;
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+  }
+
+  .card_text {
+    background: var(--secondary-color);
+    padding: 14px;
+    border-bottom: 10px solid #330656;
+  }
+</style>

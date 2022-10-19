@@ -1,0 +1,96 @@
+---
+export interface Props {
+  title: string;
+  img: string;
+}
+
+const { title, img } = Astro.props;
+---
+
+<div class="collapsible" data-aos="fade-up" data-aos-duration="700">
+  <div type="button" class="collapsible_header">
+    <div class="collapsible_img">
+      <img src={img} alt="startegie marketing web3" />
+    </div>
+    <h3 class="collapsible_title">{title}</h3>
+    <i class="fa-solid fa-angle-down collapsible_arrow"></i>
+    <i class="fa-solid fa-angle-up collapsible_arrow"></i>
+  </div>
+  <div class="collapsible_content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .collapsible {
+    outline: none;
+    margin-bottom: 15px;
+  }
+
+  .collapsible_header {
+    background: white;
+    border-bottom: 2px solid #330656;
+    color: var(--primary-color);
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 0.5fr;
+    align-items: center;
+  }
+
+  .collapsible_img {
+    height: 100px;
+  }
+  .collapsible_title {
+    padding: 14px;
+    font-size: 1.8rem;
+  }
+
+  .collapsible_content {
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    background: #330656;
+    color: var(--secondary-color);
+  }
+
+  .collapsible_arrow {
+    font-size: 25px;
+    margin-right: 10px;
+    text-align: right;
+    color: black;
+  }
+
+  .fa-angle-up.collapsible_arrow {
+    display: none;
+  }
+</style>
+
+<script>
+  const cards = document.querySelectorAll(".collapsible_header");
+  const arrowsUp = document.querySelectorAll(".fa-angle-up.collapsible_arrow");
+  const arrowsDown = document.querySelectorAll(
+    ".fa-angle-down.collapsible_arrow"
+  );
+
+  cards.forEach((card, index) => {
+    card.addEventListener("click", function () {
+      const content = this.nextElementSibling;
+      const arrowUp = arrowsUp[index];
+      const arrowDown = arrowsDown[index];
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+        content.style.padding = "0";
+        arrowUp.style.display = "none";
+        arrowDown.style.display = "block";
+      } else {
+        content.style.maxHeight = "1000px";
+        content.style.padding = "20px";
+        arrowUp.style.display = "block";
+        arrowDown.style.display = "none";
+      }
+    });
+  });
+</script>

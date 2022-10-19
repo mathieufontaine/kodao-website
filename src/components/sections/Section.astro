@@ -7,19 +7,16 @@ export interface Props {
   white?: boolean;
   reversed?: boolean;
   items?: string[];
-  bullets?: string;
-  cta?: string;
 }
+
 const {
   title,
   heading,
   description,
   image,
   white,
-  reversed = false,
   items,
-  bullets,
-  cta,
+  reversed = false,
 } = Astro.props;
 ---
 
@@ -64,6 +61,23 @@ const {
 </section>
 
 <style>
+  .title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .heading {
+    margin-bottom: 20px;
+  }
+
+  .text {
+    margin: 20px 0;
+    text-align: center;
+  }
   .flex {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
