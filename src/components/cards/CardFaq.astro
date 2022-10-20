@@ -1,0 +1,106 @@
+---
+export interface Props {
+  question: string;
+  answerList: string[];
+}
+
+const { question, answerList } = Astro.props;
+---
+
+<div class="faq_item">
+  <div class="faq_item-head">
+    <p class="faq_item-text">{question}</p>
+    <span class="faq_item-icon">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="faq_item-body">
+    {answerList.map((answer) => <p class="faq_item-answer">{answer}</p>)}
+  </div>
+</div>
+
+<style>
+  .faq_title {
+    margin: 1rem 0 2.4rem 0;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 3.5rem;
+  }
+  .faq_item {
+    margin-bottom: 20px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .faq_item-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .faq_item-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: white;
+    border-bottom: 2px solid white;
+    margin-bottom: 0.8rem;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .faq_item-head:hover {
+    box-shadow: 0 0 15px 0 rgba(168, 123, 203, 0.5);
+  }
+  .faq_item-icon {
+    cursor: pointer;
+  }
+  .faq_item-body {
+    overflow: hidden;
+    max-height: 0;
+    background: rgba(201, 191, 209, 0.1);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .faq_item-answer {
+    margin: 10px;
+    font-size: 1.4rem;
+  }
+
+  .faq_item-answer--bullet {
+    list-style: square;
+    font-weight: 300;
+    font-size: 1.4rem;
+    line-height: 15px;
+    padding-top: 5px;
+  }
+  .show-para {
+    max-height: 1000px; /* js related */
+    padding: 10px;
+  }
+</style>
+
+<script>
+  const faqItemHead = document.querySelectorAll(".faq_item-head");
+  const faqItemBody = document.querySelectorAll(".faq_item-body");
+  const faqItemicon = document.querySelectorAll(".fa.fa-chevron-down");
+
+  faqItemHead.forEach((head, index) => {
+    head.addEventListener("click", () => {
+      let icon = head.querySelector(".faq_item-icon").firstElementChild;
+      if (icon.classList.contains("fa-chevron-down")) {
+        closeAllItems();
+        head.nextElementSibling.classList.add("show-para");
+        icon.className = "fa fa-chevron-up";
+      } else if (icon.classList.contains("fa fa-chevron-up")) {
+        closeAllItems();
+      }
+    });
+  });
+
+  const closeAllItems = () => {
+    faqItemBody.forEach((body) => body.classList.remove("show-para"));
+    faqItemicon.forEach((icon) => (icon.className = "fa fa-chevron-down"));
+  };
+</script>

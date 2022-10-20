@@ -2,9 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 
 import Hero from "../components/sections/Hero.astro";
-import Intro from "../components/sections/Intro.astro";
+import Text from "../components/sections/Text.astro";
 import Cta from "../components/sections/Cta.astro";
-import MailSignUp from "../components/forms/MailSignUp.astro";
+import MailForm from "../components/forms/MailForm.astro";
 import StarterPack from "../components/StarterPack.astro";
 import Services from "../components/Services.astro";
 
@@ -12,14 +12,14 @@ import banner from "../assets/pictures/web3-success.jpeg";
 import web3 from "../assets/background/web3_kodao.jpeg";
 import { servicesData } from "../data/servicesData";
 import { starterData } from "../data/starterData";
+import ContactForm from "../components/forms/ContactForm.astro";
 ---
 
 <Layout title="Kodao.io - Offers" page="offers">
   <Hero title="Choose the Web3 offer that suits your needs!" page="offers" />
-  <a class="anchor" id="concept"></a>
   <section class="section section--white">
     <div class="container">
-      <Intro title="welcome to Web3" heading="Web3 Starter Pack">
+      <Text title="welcome to Web3" heading="Web3 Starter Pack">
         <p>
           This package is suited for all organizations that wish to start using
           Web3 in the
@@ -29,7 +29,7 @@ import { starterData } from "../data/starterData";
           Kodao provides you with a <b> 4-step Web3 solution</b> to get closer to
           your community while carrying on growing your business.
         </p>
-      </Intro>
+      </Text>
       <StarterPack offers={starterData} />
     </div>
   </section>
@@ -39,7 +39,7 @@ import { starterData } from "../data/starterData";
     </div>
     <div class="services">
       <div class="container">
-        <Intro heading="Web3 Services («à la carte»)">
+        <Text heading="Web3 Services («à la carte»)">
           <div class="text-left">
             <p>
               Whether it is your launch in Web3 or an existing Web3 project,
@@ -52,14 +52,14 @@ import { starterData } from "../data/starterData";
               <b>strengthen your brand</b> and<b> fund new projects</b> !
             </p>
           </div>
-        </Intro>
+        </Text>
         <Services services={servicesData} />
       </div>
     </div>
   </section>
   <section class="section section--white">
     <div class="container">
-      <Intro heading="We can't wait to help you build your amazing project!">
+      <Text heading="We can't wait to help you build your amazing project!">
         <p>
           Our mission is to <b
             >assist you throughout the creation and developement of your Web3
@@ -70,14 +70,15 @@ import { starterData } from "../data/starterData";
           Together, we will <b>create a unique web3 experience</b> for you and your
           community and <b>expand your business in Web3.</b>
         </p>
-      </Intro>
+      </Text>
     </div>
   </section>
   <section class="section">
+    <ContactForm />
+  </section>
+  <section class="section">
     <div class="container">
-      <Intro
-        heading="Do you want to participate in our great Web3 launch game?"
-      >
+      <Text heading="Do you want to participate in our great Web3 launch game?">
         <p>
           Only a few days left before the launch of our Web3 demo platform! For
           this event, we are launching a big "treasure hunt" type game during
@@ -88,8 +89,8 @@ import { starterData } from "../data/starterData";
           your email address below and we will send you the details in the
           coming days.
         </p>
-      </Intro>
-      <MailSignUp />
+      </Text>
+      <MailForm />
     </div>
   </section>
   <div class="banner">

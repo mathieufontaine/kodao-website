@@ -7,19 +7,19 @@ export interface Props {
 const { title = false, heading } = Astro.props;
 ---
 
-<div class="intro">
-  {title && <p class="intro_title">{title}</p>}
-  <h2 class="intro_heading">{heading}</h2>
+<div class="text">
+  {title && <p class="text_title">{title}</p>}
+  <h2 class="text_heading">{heading}</h2>
   <slot />
 </div>
 
 <style>
-  .intro {
+  .text {
     width: 80%;
     text-align: center;
   }
 
-  .intro_title {
+  .text_title {
     font-size: 1.8rem;
     font-weight: 800;
     text-align: center;
@@ -28,17 +28,11 @@ const { title = false, heading } = Astro.props;
     margin-bottom: 20px;
   }
 
-  .intro_heading {
+  .text_heading {
     margin-bottom: 20px;
   }
 
-  .intro_text {
-    margin: 20px 0;
-    text-align: center;
-    /* font-size: 1.3rem; */
-  }
-
-  .intro_img {
+  .text_img {
     display: flex;
     justify-content: center;
     padding: 30px 0;
@@ -47,17 +41,17 @@ const { title = false, heading } = Astro.props;
     /* max-height: 450px; */
   }
 
-  .intro_img img {
+  .text_img img {
     object-fit: contain;
   }
 
-  .intro--contact {
+  .text--contact {
     height: 10vh;
     padding-bottom: 20px;
     margin-bottom: 20px;
   }
 
-  .intro_grid {
+  .text_grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: start;

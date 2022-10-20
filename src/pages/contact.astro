@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import Hero from "../components/sections/Hero.astro";
+import Text from "../components/sections/Text.astro";
+import Cta from "../components/sections/Cta.astro";
+
+import banner from "../assets/background/web3_kodao.jpeg";
+import ContactForm from "../components/forms/ContactForm.astro";
+---
+
+<Layout title="Kodao.io - Contact" page="contact">
+  <Hero title="Contact Us" page="contact" />
+  <section class="section section--white">
+    <div class="container">
+      <Text heading="Web3 is only one click away!">
+        <p>
+          You are interested in Web3 and want to launch with assistance without
+          worrying about the technical aspects?
+        </p>
+        <p>
+          Contact us with a brief explanation of your needs and we will
+          demonstrate which services might be of interest to you.
+        </p>
+        <p>
+          We will also agree on a date if you want a demonstration of our web3
+          tools.
+        </p>
+      </Text>
+    </div>
+  </section>
+  <section class="section">
+    <ContactForm />
+  </section>
+  <Cta
+    title="Kodao.io helps you get started in Web3!"
+    btnText="Discover our offers"
+    btnHref="/offers.html"
+    btnText2="Discover our concept"
+    btnHref2="./concept.html"
+    white={true}
+  >
+    <p>
+      The Web3 allows to give much more freedom and and power to end users,
+      creating an infinite number of possibilities for organizations and their
+      communities. It's time to build, sell, innovate and share ! Get started
+      with web3 now!
+    </p>
+    <p>It's time to build, sell, innovate and share! Get into web3 now!</p>
+  </Cta>
+  <div class="banner">
+    <img src={banner} alt="web3_kodao" />
+  </div>
+  <Cta
+    title="Any questions? Check out our FAQ!"
+    btnText="Check out our FAQ!"
+    btnHref="/faq.html"
+  >
+    <p>
+      Web3, blockchain, NFTs, what do these terms mean and are they really
+      useful for your organization ? We answer to that in the FAQ!
+    </p>
+  </Cta>
+</Layout>

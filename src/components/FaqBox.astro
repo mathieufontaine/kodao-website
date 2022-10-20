@@ -1,0 +1,34 @@
+---
+import CardFaq from "./cards/CardFaq.astro";
+
+interface FaqItem {
+  question: string;
+  answerList: string[];
+}
+
+export interface Props {
+  faqData: FaqItem[];
+}
+
+const { faqData } = Astro.props;
+---
+
+<div class="faq">
+  {
+    faqData.map((item) => (
+      <CardFaq question={item.question} answerList={item.answerList} />
+    ))
+  }
+</div>
+
+<style>
+  .faq {
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 
 import Showcase from "../components/sections/Showcase.astro";
-import Section from "../components/sections/Section.astro";
+import Flex from "../components/sections/Flex.astro";
 
 import concept from "../assets/pictures/concept-section.png";
 import offer from "../assets/pictures/solution-section.png";
@@ -16,7 +16,7 @@ import offer from "../assets/pictures/solution-section.png";
     downText="Discover"
   />
   <a class="anchor" id="concept"></a>
-  <Section
+  <Flex
     title="concept"
     heading="The future of community involvement"
     description="Blockchain technology and NFTs allow more freedom and power to end users, creating a new way of interaction and collaboration between organizations and their community."
@@ -32,8 +32,8 @@ import offer from "../assets/pictures/solution-section.png";
     <a href="./offers.html" class="button button--flex" type="button">
       <span class="button_text">Discover our offers</span>
     </a>
-  </Section>
-  <Section
+  </Flex>
+  <Flex
     title="offers"
     heading="Kodao.io helps you create and develop your Web3 project"
     description="Starting a web3 project can be frightening as the tools and the technology evolve at a very high pace. At Kodao.io, our goal is to help you get started in the best possible conditions.."
@@ -49,5 +49,5 @@ import offer from "../assets/pictures/solution-section.png";
     <a href="./concept.html" class="button button--flex" type="button">
       <span class="button_text">Discover our offers</span>
     </a>
-  </Section>
+  </Flex>
 </Layout>

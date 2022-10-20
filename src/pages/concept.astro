@@ -2,8 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 
 import Hero from "../components/sections/Hero.astro";
-import Section from "../components/sections/Section.astro";
-import Intro from "../components/sections/Intro.astro";
+import Flex from "../components/sections/Flex.astro";
+import Text from "../components/sections/Text.astro";
 import Card from "../components/cards/Card.astro";
 import Cta from "../components/sections/Cta.astro";
 
@@ -17,7 +17,7 @@ import banner from "../assets/background/web3_kodao.jpeg";
 
 <Layout title="Kodao.io - Concept" page="concept">
   <Hero title="A unique experience for you and your community" page="concept" />
-  <Section
+  <Flex
     title="The Web3"
     heading="From consumer to co-owner"
     white={true}
@@ -31,14 +31,14 @@ import banner from "../assets/background/web3_kodao.jpeg";
   <a class="anchor" id="concept"></a>
   <section class="section section--concept">
     <div class="container">
-      <Intro title="Concept" heading="The future of community involvement">
+      <Text title="Concept" heading="The future of community involvement">
         <p class="intro_text">
           Members of a community can now become financially and emotionally
           involved around the same project, in a totally secure and
           decentralized way. Discover a new way to interact with your community
           with the Web3.
         </p>
-      </Intro>
+      </Text>
       <div class="content">
         <Card index={1} text="Create and sell your digital art" img={imgCard1}>
           <p>
