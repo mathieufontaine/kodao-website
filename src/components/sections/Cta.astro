@@ -6,6 +6,7 @@ export interface Props {
   btnText2?: string;
   btnHref2?: string;
   white?: boolean;
+  paddingTop?: boolean;
 }
 
 const {
@@ -15,10 +16,14 @@ const {
   btnText2,
   btnHref2,
   white = false,
+  paddingTop = false,
 } = Astro.props;
 ---
 
-<section class={white ? "section section--white" : "section"}>
+<section
+  class={white ? "section section--white" : "section"}
+  style={paddingTop ? "padding-top: 150px" : ""}
+>
   <div class="container">
     <div class="cta">
       <div class="cta_text">

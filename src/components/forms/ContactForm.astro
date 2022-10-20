@@ -250,3 +250,162 @@
     display: none;
   }
 </style>
+
+<script>
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const social = document.getElementById("social");
+  const message = document.getElementById("message");
+  const contactForm = document.getElementById("contact-form");
+  const formInner = document.querySelector(".form_inner");
+  const errorElement = document.getElementById("error");
+  const successMsg = document.getElementById("success-msg");
+  const submitBtn = document.getElementById("submit");
+  const inputs = contactForm.querySelectorAll(".form_input");
+  const subject = document.getElementById("subject");
+
+  const clientOrga = document.getElementById("client-orga");
+  const partenaireOrga = document.getElementById("partenaire-orga");
+  const clientWeb = document.getElementById("client-web");
+  const partenaireWeb = document.getElementById("partenaire-web");
+
+  const border = "3px solid rgb(161, 30, 56)";
+
+  const validate = (e) => {
+    e.preventDefault();
+
+    if (name.value.length < 3) {
+      errorElement.innerHTML = "Your name must have at least 3 characters.";
+      name.style.border = border;
+      return false;
+    }
+
+    if (!(email.value.includes(".") && email.value.includes("@"))) {
+      errorElement.innerHTML = "This e-mail address is not valid";
+      email.style.border = border;
+      return false;
+    }
+
+    if (!emailIsValid(email.value)) {
+      errorElement.innerHTML = "This e-mail address is not valid";
+      email.style.border = border;
+      return false;
+    }
+    if (subject.value === "default") {
+      errorElement.innerHTML = "Please choose a request type";
+      subject.style.border = border;
+      return false;
+    }
+    if (
+      subject.value === "starter" ||
+      (subject.value === "full" && clientOrga.value === "default")
+    ) {
+      errorElement.innerHTML = "Please enter your type of organization";
+      clientOrga.style.border = border;
+      return false;
+    }
+    if (subject.value === "partenaire" && partenaireOrga.value === "default") {
+      errorElement.innerHTML = "Please enter your type of organization";
+      partenaireOrga.style.border = border;
+      return false;
+    }
+    if (subject.value === "partenaire" && partenaireWeb.value.length < 3) {
+      errorElement.innerHTML =
+        "Please provide a link to your website or social network";
+      partenaireWeb.style.border = border;
+      return false;
+    }
+
+    if (message.value.length < 10) {
+      errorElement.innerHTML = "Your message must be at least 10 characters";
+      message.style.border = border;
+      return false;
+    }
+
+    processForm(contactForm);
+  };
+
+  const emailIsValid = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  //* Send Form + Show Success Message
+
+  const processForm = (form) => {
+    const data = new FormData(form);
+    data.append("form-name", "contact");
+    console.log(form, data);
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(data).toString(),
+    })
+      .then(() => {
+        errorElement.innerHTML = "";
+        successMsg.innerHTML =
+          "Your request has been sent! Thank you. </br> It will be processed by our team as soon as possible.";
+        formInner.style.display = "none";
+        inputs.forEach((input) => (input.style.display = "none"));
+        // alert(
+        //   "Your request has been sent! Thank you. It will be processed by our team as soon as possible."
+        // );
+        window.scrollTo(0, 0);
+      })
+      .catch((error) => {
+        form.innerHTML = `<div class="form--error">Error: ${error}</div>`;
+      });
+  };
+
+  submitBtn.addEventListener("click", validate);
+
+  inputs.forEach((input) =>
+    input.addEventListener("focus", (e) => {
+      e.target.style.border = "3px solid black";
+      errorElement.innerHTML = "";
+    })
+  );
+
+  inputs.forEach((input) =>
+    input.addEventListener("blur", (e) => {
+      e.target.style.border = "none";
+    })
+  );
+
+  //* show extra //
+
+  const client = document.querySelector(".form_client");
+  const partenaire = document.querySelector(".form_partenaire");
+
+  subject.addEventListener("change", (e) => {
+    const value = e.target.value;
+    if (value === "starter" || value === "full") {
+      client.style.display = "block";
+      partenaire.style.display = "none";
+    } else if (value === "partenaire") {
+      client.style.display = "none";
+      partenaire.style.display = "block";
+    } else {
+      client.style.display = "none";
+      partenaire.style.display = "none";
+    }
+  });
+
+  //* show client //
+
+  const entreprise = document.getElementById("entreprise");
+  const createur = document.getElementById("createur");
+
+  clientOrga.addEventListener("change", (e) => {
+    const value = e.target.value;
+    if (value === "entreprise" || value === "association") {
+      entreprise.style.display = "block";
+      createur.style.display = "none";
+    } else if (value === "createur" || value === "nft" || value === "other") {
+      entreprise.style.display = "none";
+      createur.style.display = "block";
+    } else {
+      entreprise.style.display = "none";
+      createur.style.display = "none";
+    }
+  });
+</script>

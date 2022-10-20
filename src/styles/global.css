@@ -143,7 +143,7 @@ img {
 
 .section--about {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/assets/background/about.jpeg");
+    url("../assets/background/about.jpeg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -266,24 +266,6 @@ background: transparent;
   margin-top: 20px;
 }
 
-/* imgage box */
-
-.img-box {
-  /* opacity: 0.7; */
-  /* border-top: 5px solid white; */
-  height: 350px;
-  width: 100%;
-  position: relative;
-  border-bottom: 6px solid white;
-}
-.img-box img {
-  object-position: 50% 58%;
-}
-
-.img-box_text {
-  font-style: italic;
-}
-
 /* Content */
 
 .content {
@@ -307,4 +289,52 @@ background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* home */
+.cardTeam_container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  text-align: center;
+  transition: 1s all ease-in-out;
+  max-width: 1200px;
+  margin: auto;
+  color: var(--secondary-color);
+}
+
+.box_container {
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 50px;
+  text-align: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* services */
+
+.services {
+  transition: all 0.5s ease-in-out;
+  margin: 0 auto 0 0;
+  width: 80%;
+}
+.services_img {
+  position: absolute;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  border-radius: 0;
+  overflow: hidden;
+  right: 0;
+}
+.text-left {
+  text-align: left;
 }
