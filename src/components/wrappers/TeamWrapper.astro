@@ -1,0 +1,55 @@
+---
+import CardTeam from "../cards/CardTeam.astro";
+
+interface Item {
+  href: string;
+  icon: string;
+}
+
+interface Member {
+  name: string;
+  role: string;
+  img: string;
+  social: Item[];
+}
+
+export interface Props {
+  teamMembers: Member[];
+}
+
+const { teamMembers } = Astro.props;
+---
+
+<section class="section section--about">
+  <div class="container">
+    <slot />
+    <div class="cards_container">
+      {
+        teamMembers.map((member) => (
+          <CardTeam
+            name={member.name}
+            role={member.role}
+            img={member.img}
+            social={member.social}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .cards_container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    text-align: center;
+    transition: 1s all ease-in-out;
+    max-width: 1200px;
+    margin: auto;
+    color: var(--secondary-color);
+  }
+</style>

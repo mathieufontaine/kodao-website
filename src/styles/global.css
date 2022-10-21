@@ -80,25 +80,18 @@ img {
   object-fit: cover;
 }
 
+button {
+  border: none;
+  color: inherit;
+  background: none;
+}
+
+.text-left {
+  text-align: left;
+}
+
 .quote {
   font-style: italic;
-  /* font-weight: 300; */
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-}
-
-.grid_img {
-  height: 200px;
-}
-
-.grid_img img {
-  object-fit: contain;
 }
 
 /*----- Container -------*/
@@ -109,7 +102,6 @@ img {
   flex-direction: column;
   width: 100%;
   padding: 4% 8%;
-  /* padding: 30px; */
   overflow-x: clip;
   max-width: 1800px;
   margin: auto;
@@ -128,6 +120,10 @@ img {
 .section--white {
   background: var(--secondary-color);
   color: var(--primary-color);
+}
+
+.section--transparent {
+  background: transparent;
 }
 
 .section--blue {
@@ -153,135 +149,6 @@ img {
   background-position: center center;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: start;
-  justify-content: space-around;
-  width: 100%;
-  text-align: center;
-}
-
-.col {
-  padding: 20px;
-}
-/* Button */
-
-.button {
-  position: relative;
-  width: 260px;
-  height: auto;
-  font-size: 1.5rem;
-  padding: 15px;
-  text-align: center;
-  border-radius: 50px;
-  font-weight: 500;
-  background: var(--accent-color);
-  color: var(--secondary-color);
-  cursor: pointer;
-  margin: 10px 20px;
-  transition: 0.5s all ease;
-  border: none;
-  /* border: 2px solid var(--accent-color); */
-  /* overflow: hidden; */
-}
-
-.button:hover {
-  transform: scale(110%);
-  animation: none;
-}
-
-/* .button:hover {
-background: transparent;
-} */
-
-.button--primary {
-  background: var(--primary-color);
-  color: var(--secondary-color);
-  /* margin: 25px auto; */
-  /* border: 2px solid var(--primary-color); */
-}
-
-.button--secondary {
-  background: var(--secondary-color);
-  color: var(--primary-color);
-}
-
-.button--hero {
-  background: var(--secondary-color);
-  color: var(--primary-color);
-}
-.button--hero:hover {
-  background: var(--accent-color);
-  color: var(--secondary-color);
-}
-
-.button--cta {
-  transform: scale(90%);
-  animation: scaleIn 2.5s infinite;
-}
-
-.button--fixed {
-  display: none;
-  position: fixed;
-  bottom: 5px;
-  right: 5px;
-  z-index: 10;
-  font-size: 1.3rem;
-  background-color: var(--primary-color);
-  padding: 12px 15px;
-  text-transform: uppercase;
-  font-weight: 700;
-  border-radius: 5px;
-  border: 2px solid var(--secondary-color);
-}
-
-.button--fixed:hover {
-  background-color: var(--accent-color);
-  border: 2px solid var(--secondary-color);
-}
-
-.button--flex {
-  margin-top: 20px;
-}
-.button_text {
-  z-index: 2;
-  position: relative;
-  /* font-size: 1.8rem; */
-}
-
-.button--faq .button_text {
-  transition: all 1s ease;
-}
-.button--faq:hover .button_text {
-  font-size: 1.6rem;
-}
-
-.button_container {
-  width: 70%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-/* Content */
-
-.content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding-top: 20px;
-}
-
-.banner {
-  height: 280px;
-  width: 100%;
-}
-
 /* mobile */
 
 .desktop-version {
@@ -289,52 +156,4 @@ background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* home */
-.cardTeam_container {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
-  text-align: center;
-  transition: 1s all ease-in-out;
-  max-width: 1200px;
-  margin: auto;
-  color: var(--secondary-color);
-}
-
-.box_container {
-  z-index: 5;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  padding: 50px;
-  text-align: center;
-  max-width: 1200px;
-  margin: auto;
-}
-
-/* services */
-
-.services {
-  transition: all 0.5s ease-in-out;
-  margin: 0 auto 0 0;
-  width: 80%;
-}
-.services_img {
-  position: absolute;
-  top: 0;
-  width: 20%;
-  height: 100%;
-  border-radius: 0;
-  overflow: hidden;
-  right: 0;
-}
-.text-left {
-  text-align: left;
 }

@@ -1,19 +1,25 @@
 ---
+import Button from "../common/Button.astro";
+
 export interface Props {
   title: string;
   heading: string;
-  description?: string;
   image: string;
+  description?: string;
+  btnHref?: string;
+  btnText?: string;
   white?: boolean;
-  reversed?: boolean;
   items?: string[];
+  reversed?: boolean;
 }
 
 const {
   title,
   heading,
-  description,
   image,
+  description,
+  btnHref,
+  btnText,
   white,
   items,
   reversed = false,
@@ -46,7 +52,7 @@ const {
             ))
           }
         </ul>
-        <slot />
+        {btnText && <Button btnHref={btnHref} btnText={btnText} type="flex" />}
       </div>
       <div
         class={`flex_img ${reversed && "flex_img--first"}`}

@@ -1,11 +1,13 @@
 ---
+import Button from "../common/Button.astro";
+
 export interface Props {
   title: string;
   description: string;
-  ctaText: string;
+  btnText: string;
   downText: string;
 }
-const { title, description, ctaText, downText } = Astro.props;
+const { title, description, btnText, downText } = Astro.props;
 ---
 
 <section id="hero" class="section showcase">
@@ -25,11 +27,7 @@ const { title, description, ctaText, downText } = Astro.props;
       >
         {description}
       </p>
-      <a href="./contact.html">
-        <button class="button button--hero" type="button">
-          <span class="button_text">{ctaText}</span>
-        </button>
-      </a>
+      <Button btnHref="./contact.html" btnText={btnText} type="hero" />
     </div>
   </div>
   <a href="#concept" class="discover">

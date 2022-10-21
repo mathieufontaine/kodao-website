@@ -1,12 +1,13 @@
 ---
 export interface Props {
   index: number;
-  text: string;
+  heading: string;
   img: string;
+  text: string;
   reversed?: boolean;
 }
 
-const { index, text, img, reversed } = Astro.props;
+const { index, heading, img, text, reversed } = Astro.props;
 ---
 
 <div
@@ -21,9 +22,9 @@ const { index, text, img, reversed } = Astro.props;
   <div class={reversed ? "card_text card_text--reversed" : "card_text"}>
     <h4>
       <span class="card_number">{index}.</span>
-      {text}
+      {heading}
     </h4>
-    <slot />
+    <p>{text}</p>
   </div>
 </div>
 

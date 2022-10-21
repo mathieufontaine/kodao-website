@@ -1,0 +1,74 @@
+---
+import CardService from "../cards/CardService.astro";
+
+interface Service {
+  title: string;
+  description: string;
+  img: string;
+  list: string[];
+}
+
+export interface Props {
+  heading: string;
+  intro: string;
+  img: string;
+  services: Service[];
+}
+
+const { heading, intro, img, services } = Astro.props;
+---
+
+<section class="section">
+  <div class="services_img">
+    <img src={img} alt="web3 services" />
+  </div>
+  <div class="services">
+    <div class="container">
+      <h2 class="text_heading">{heading}</h2>
+      <p class="text-left">{intro}</p>
+      <div class="service_wrapper">
+        {
+          services.map((service) => (
+            <CardService title={service.title} img={service.img}>
+              <p>{service.description}</p>
+              <ul>
+                {service.list.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </CardService>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .service_wrapper {
+    height: auto;
+    visibility: visible;
+    position: relative;
+    width: 100%;
+    margin: 30px auto 20px;
+    padding: 0;
+  }
+  .services {
+    transition: all 0.5s ease-in-out;
+    margin: 0 auto 0 0;
+    width: 80%;
+  }
+  .services_img {
+    position: absolute;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    border-radius: 0;
+    overflow: hidden;
+    right: 0;
+  }
+  ul {
+    margin: 20px;
+    list-style-type: square;
+  }
+</style>

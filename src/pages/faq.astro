@@ -1,26 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { faqData } from "../data/faqData";
+import web3 from "../assets/pictures/web3-success.jpeg";
 
 import Hero from "../components/sections/Hero.astro";
 import Text from "../components/sections/Text.astro";
 import Cta from "../components/sections/Cta.astro";
-import FaqBox from "../components/FaqBox.astro";
-
-import { faqData } from "../data/faqData";
-
-import banner from "../assets/pictures/web3-success.jpeg";
+import FaqWrapper from "../components/wrappers/FaqWrapper.astro";
+import Banner from "../components/common/Banner.astro";
 ---
 
 <Layout title="Kodao.io - FAQ" page="faq">
   <Hero title="FAQ" page="faq" />
-  <section class="section">
-    <div class="container">
-      <Text heading="A question about Web3 or Kodao.io?">
-        <p>See the answers to the most frequently asked questions below.</p>
-      </Text>
-      <FaqBox faqData={faqData} />
-    </div>
-  </section>
+  <Text heading="A question about Web3 or Kodao.io?">
+    <p>See the answers to the most frequently asked questions below.</p>
+  </Text>
+  <FaqWrapper faqData={faqData} />
   <Cta
     title="Kodao.io helps you get started in Web3!"
     btnText="Discover our offers"
@@ -28,16 +23,7 @@ import banner from "../assets/pictures/web3-success.jpeg";
     btnText2="Discover our concept"
     btnHref2="./concept.html"
     white={true}
-  >
-    <p>
-      The Web3 allows to give much more freedom and and power to end users,
-      creating an infinite number of possibilities for organizations and their
-      communities. It's time to build, sell, innovate and share ! Get started
-      with web3 now!
-    </p>
-    <p>It's time to build, sell, innovate and share! Get into web3 now!</p>
-  </Cta>
-  <div class="banner">
-    <img src={banner} alt="web3_kodao" />
-  </div>
+    text="The Web3 allows to give much more freedom and and power to end users, creating an infinite number of possibilities for organizations and their communities. It's time to build, sell, innovate and share ! Get started with web3 now!"
+  />
+  <Banner img={web3} />
 </Layout>

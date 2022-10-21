@@ -1,27 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+import { teamData } from "../data/teamData";
+import { socialData } from "../data/socialData";
+
 import concept from "../assets/pictures/concept-section.png";
 import offer from "../assets/pictures/solution-section.png";
 import banner from "../assets/background/web3_communities.jpeg";
-import mathieu from "../assets/team/mathieu_fontaine.jpeg";
-import luca from "../assets/team/luca_venditto.jpeg";
-import discord from "../assets/pictures/private-discord.jpeg";
-import kodao from "../assets/logo/logo.ico";
 
 import Showcase from "../components/sections/Showcase.astro";
 import Flex from "../components/sections/Flex.astro";
 import Text from "../components/sections/Text.astro";
 import Cta from "../components/sections/Cta.astro";
-import CardTeam from "../components/cards/CardTeam.astro";
-import CardBox from "../components/cards/CardBox.astro";
+import Banner from "../components/common/Banner.astro";
+import Button from "../components/common/Button.astro";
+import TeamWrapper from "../components/wrappers/TeamWrapper.astro";
+import SocialWrapper from "../components/wrappers/SocialWrapper.astro";
 ---
 
 <Layout page="home" title="Kodao.io">
   <Showcase
     title="Involve your community through Web3"
     description="Endless possibilities are waiting for you"
-    ctaText="Book a Demo"
+    btnText="Book a Demo"
     downText="Discover"
   />
   <a class="anchor" id="concept"></a>
@@ -37,11 +38,9 @@ import CardBox from "../components/cards/CardBox.astro";
       "Co-create to involve them in your project",
       "Reward your most engaged members",
     ]}
-  >
-    <a href="./offers.html" class="button button--flex" type="button">
-      <span class="button_text">Discover our offers</span>
-    </a>
-  </Flex>
+    btnHref="./offers.html"
+    btnText="Discover our concept"
+  />
   <Flex
     title="offers"
     heading="Kodao.io helps you create and develop your Web3 project"
@@ -54,17 +53,10 @@ import CardBox from "../components/cards/CardBox.astro";
       "Develop your own Web3 ecosystem with our ailor-made services",
       "Get a custom support throughout the creation of your project.",
     ]}
-  >
-    <a href="./concept.html" class="button button--flex" type="button">
-      <span class="button_text">Discover our offers</span>
-    </a>
-  </Flex>
-  <Cta
-    title="New to Web3?"
-    btnText="Let's go!"
-    btnHref="/contact.html"
-    white={true}
-  >
+    btnHref="./concept.html"
+    btnText="Discover our offers"
+  />
+  <Text title="Let's get started" heading="Is Web3 for you?" background="white">
     <p>
       Whether you are <b>a company, a content creator or an association</b>,
       many opportunities are now available for you through Web3. With Kodao.io,
@@ -76,96 +68,41 @@ import CardBox from "../components/cards/CardBox.astro";
         >give more utilities to your community</b
       > we can help you take your project to the next level!
     </p>
-  </Cta>
-  <div class="banner">
-    <img src={banner} alt="web3_kodao" />
-  </div>
-  <section class="section section--about">
-    <div class="container">
-      <Text heading="A specialized team passionate about Web3!">
-        <p>
-          Kodao.io was created in 2021 after having noticed a lack of
-          understanding of the Web3 environment. We decided to create <b>
-            a web development and consulting agency</b
-          > in order to help organizations and creators to move from the traditional
-          system to a new
-          <b>innovative and decentralized one</b>.
-        </p>
-        <p>We will bring our expertise in all aspects of your Web3 project.</p>
-      </Text>
-      <div class="cardTeam_container">
-        <CardTeam
-          name="Mathieu F."
-          role="Co-founder / Web Developer"
-          img={mathieu}
-          social={[
-            { href: "https://twitter.com/ftn_mathieu", icon: "fa-twitter" },
-            { href: "https://github.com/mathieufontaine", icon: "fa-github" },
-            {
-              href: "https://www.linkedin.com/in/mathieu-fontaine/",
-              icon: "fa-linkedin-in",
-            },
-          ]}
-        />
-        <CardTeam
-          name="Luca V."
-          role="Co-founder / Business Developer"
-          img={luca}
-          social={[
-            { href: "https://twitter.com/kodao_io", icon: "fa-twitter" },
-            {
-              href: "https://discord.com/channels/@me/989482629118181436",
-              icon: "fa-discord",
-            },
-            {
-              href: "https://www.linkedin.com/in/luca-venditto/",
-              icon: "fa-linkedin-in",
-            },
-          ]}
-        />
-      </div>
-    </div>
-  </section>
+    <Button btnText="Let's go!" btnHref="/contact.html" type="cta" />
+  </Text>
+  <Banner img={banner} />
+  <TeamWrapper teamMembers={teamData}>
+    <Text
+      heading="A specialized team passionate about Web3!"
+      background="transparent"
+    >
+      <p>
+        Kodao.io was created in 2021 after having noticed a lack of
+        understanding of the Web3 environment. We decided to create <b>
+          a web development and consulting agency</b
+        > in order to help organizations and creators to move from the traditional
+        system to a new
+        <b>innovative and decentralized one</b>.
+      </p>
+      <p>We will bring our expertise in all aspects of your Web3 project.</p>
+    </Text>
+  </TeamWrapper>
   <Cta
     title="Any questions? Check out our FAQ!"
-    btnText="Check out our FAQ!"
-    btnHref="/faq.html"
+    btnText2="Check out our FAQ!"
+    btnHref2="/faq.html"
     white={true}
-  >
-    <p>
-      Web3, blockchain, NFTs, what do these terms mean and are they really
-      useful for your organization ? We answer to that in the FAQ!
-    </p>
-  </Cta>
-
-  <section class="section section--blue">
-    <div class="container">
-      <h3>Join the Kodao community and discover the Web3 World</h3>
-      <div class="box_container">
-        <CardBox
-          href="https://discord.gg/BXtp6szz7C"
-          title="Discord Community"
-          description="Join the Kodao community on Discord, introduce yourself and meet other Web3 enthusiasts!"
-          img={discord}
-          cta="Join Now"
-        />
-        <CardBox
-          href="https://blog.kodao.io"
-          title="Kodao Blog"
-          description="Check out our blog about Web3 and learn more about this technological revolution."
-          img={kodao}
-          cta="Visit Now"
-          primary={true}
-        />
-      </div>
-    </div>
-  </section>
+    text="Web3, blockchain, NFTs, what do these terms mean and are they really useful for your organization ? We answer to that in the FAQ!"
+  />
+  <SocialWrapper
+    title="Join the Kodao community and discover the Web3 World"
+    socialItems={socialData}
+  />
   <Cta
     title="Ready to get started with Web3?"
     btnText="Let's go!"
     btnHref="/offers.html"
     paddingTop={true}
-  >
-    <p>Kodao.io supports you in all the steps of your project</p>
-  </Cta>
+    text="Kodao.io supports you in all the steps of your project"
+  />
 </Layout>

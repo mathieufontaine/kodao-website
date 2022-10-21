@@ -1,8 +1,11 @@
 ---
+import Button from "../common/Button.astro";
+
 export interface Props {
   title: string;
-  btnText: string;
-  btnHref: string;
+  text: string;
+  btnText?: string;
+  btnHref?: string;
   btnText2?: string;
   btnHref2?: string;
   white?: boolean;
@@ -11,6 +14,7 @@ export interface Props {
 
 const {
   title,
+  text,
   btnText,
   btnHref,
   btnText2,
@@ -28,23 +32,15 @@ const {
     <div class="cta">
       <div class="cta_text">
         <h2 class="cta_title">{title}</h2>
-        <slot />
+        <p>{text}</p>
       </div>
       <div class="cta_btn">
         {
           btnText2 && (
-            <a
-              href={btnHref2}
-              class="button button--cta button--primary"
-              type="button"
-            >
-              <span class="button_text">{btnText2}</span>
-            </a>
+            <Button btnHref={btnHref2} btnText={btnText2} type="primary" />
           )
         }
-        <a href={btnHref} class="button button--cta" type="button">
-          <span class="button_text">{btnText}</span>
-        </a>
+        {btnText && <Button btnHref={btnHref} btnText={btnText} type="cta" />}
       </div>
     </div>
   </div>
@@ -68,10 +64,8 @@ const {
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
-
   .cta_text {
     text-align: center;
-    margin-bottom: 20px;
   }
   .cta--grid .cta_text,
   .cta--inverse .cta_text {

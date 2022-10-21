@@ -1,5 +1,5 @@
 ---
-import CardStarter from "../components/cards/CardStarter.astro";
+import CardStarter from "../cards/CardStarter.astro";
 
 interface Offer {
   index: number;
@@ -15,19 +15,23 @@ export interface Props {
 const { offers } = Astro.props;
 ---
 
-<div class="card_wrapper">
-  {
-    offers.map((offer) => (
-      <CardStarter index={offer.index} title={offer.title} img={offer.img}>
-        <ul>
-          {offer.list.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      </CardStarter>
-    ))
-  }
-</div>
+<section class="section section--white">
+  <div class="container">
+    <div class="card_wrapper">
+      {
+        offers.map((offer) => (
+          <CardStarter index={offer.index} title={offer.title} img={offer.img}>
+            <ul>
+              {offer.list.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </CardStarter>
+        ))
+      }
+    </div>
+  </div>
+</section>
 
 <style>
   .card_wrapper {

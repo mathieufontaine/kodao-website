@@ -1,0 +1,54 @@
+---
+import CardSocial from "../cards/CardSocial.astro";
+
+interface Item {
+  href: string;
+  title: string;
+  img: string;
+  description: string;
+  cta: string;
+  primary?: boolean;
+}
+
+export interface Props {
+  title: string;
+  socialItems: Item[];
+}
+
+const { title, socialItems } = Astro.props;
+---
+
+<section class="section section--blue">
+  <div class="container">
+    <h3>{title}</h3>
+    <div class="items_container">
+      {
+        socialItems.map((item) => (
+          <CardSocial
+            href={item.href}
+            title={item.title}
+            description={item.description}
+            img={item.img}
+            cta={item.cta}
+            primary={item.primary}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .items_container {
+    z-index: 5;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 50px;
+    text-align: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+</style>

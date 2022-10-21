@@ -1,109 +1,74 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+import { servicesData } from "../data/servicesData";
+import { starterData } from "../data/starterData";
+
+import img from "../assets/pictures/web3-success.jpeg";
+import web3 from "../assets/background/web3_kodao.jpeg";
+
 import Hero from "../components/sections/Hero.astro";
 import Text from "../components/sections/Text.astro";
 import Cta from "../components/sections/Cta.astro";
 import MailForm from "../components/forms/MailForm.astro";
-import StarterPack from "../components/StarterPack.astro";
-import Services from "../components/Services.astro";
-
-import banner from "../assets/pictures/web3-success.jpeg";
-import web3 from "../assets/background/web3_kodao.jpeg";
-import { servicesData } from "../data/servicesData";
-import { starterData } from "../data/starterData";
+import StarterWrapper from "../components/wrappers/StarterWrapper.astro";
+import ServicesWrapper from "../components/wrappers/ServicesWrapper.astro";
 import ContactForm from "../components/forms/ContactForm.astro";
+import Banner from "../components/common/Banner.astro";
 ---
 
 <Layout title="Kodao.io - Offers" page="offers">
   <Hero title="Choose the Web3 offer that suits your needs!" page="offers" />
-  <section class="section section--white">
-    <div class="container">
-      <Text title="welcome to Web3" heading="Web3 Starter Pack">
-        <p>
-          This package is suited for all organizations that wish to start using
-          Web3 in the
-          <b>easiest and most effective</b> way possible.
-        </p>
-        <p>
-          Kodao provides you with a <b> 4-step Web3 solution</b> to get closer to
-          your community while carrying on growing your business.
-        </p>
-      </Text>
-      <StarterPack offers={starterData} />
-    </div>
-  </section>
-  <section class="section">
-    <div class="services_img">
-      <img src={web3} alt="web3 services" />
-    </div>
-    <div class="services">
-      <div class="container">
-        <Text heading="Web3 Services («à la carte»)">
-          <div class="text-left">
-            <p>
-              Whether it is your launch in Web3 or an existing Web3 project,
-              Kodao.io offers you a wide range of services to implement advanced
-              features for your community.
-            </p>
-            <p>
-              Build your <b>Web3 ecosystem</b>, offer a <b>unique experience</b>
-              to your community,
-              <b>strengthen your brand</b> and<b> fund new projects</b> !
-            </p>
-          </div>
-        </Text>
-        <Services services={servicesData} />
-      </div>
-    </div>
-  </section>
-  <section class="section section--white">
-    <div class="container">
-      <Text heading="We can't wait to help you build your amazing project!">
-        <p>
-          Our mission is to <b
-            >assist you throughout the creation and developement of your Web3
-            project</b
-          > to allow you to get started as soon as possible on this journey. No need
-          to worry about the technical aspects!
-        </p><p>
-          Together, we will <b>create a unique web3 experience</b> for you and your
-          community and <b>expand your business in Web3.</b>
-        </p>
-      </Text>
-    </div>
-  </section>
-  <section class="section">
-    <ContactForm />
-  </section>
-  <section class="section">
-    <div class="container">
-      <Text heading="Do you want to participate in our great Web3 launch game?">
-        <p>
-          Only a few days left before the launch of our Web3 demo platform! For
-          this event, we are launching a big "treasure hunt" type game during
-          which you can win Kodao.io NFTs to collect and many more rewards.
-        </p>
-        <p>
-          If you want to participate in this game (totally free) just fill in
-          your email address below and we will send you the details in the
-          coming days.
-        </p>
-      </Text>
-      <MailForm />
-    </div>
-  </section>
-  <div class="banner">
-    <img src={banner} alt="web3_kodao" />
-  </div>
+  <Text title="welcome to Web3" heading="Web3 Starter Pack" background="white">
+    <p>
+      This package is suited for all organizations that wish to start using Web3
+      in the <b>easiest and most effective</b> way possible.
+    </p>
+    <p>
+      Kodao provides you with a <b> 4-step Web3 solution</b> to get closer to your
+      community while carrying on growing your business.
+    </p>
+  </Text>
+  <StarterWrapper offers={starterData} />
+  <ServicesWrapper
+    heading="Web3 Services («à la carte»)"
+    intro="Whether it is your launch in Web3 or an existing Web3 project, Kodao.io offers you a wide range of services to implement advanced features for your community. Build your Web3 ecosystem, offer a unique experience to your community, strengthen your brand and fund new projects !"
+    img={web3}
+    services={servicesData}
+  />
+  <Text
+    heading="We can't wait to help you build your amazing project!"
+    background="white"
+  >
+    <p>
+      Our mission is to <b
+        >assist you throughout the creation and developement of your Web3
+        project</b
+      > to allow you to get started as soon as possible on this journey. No need
+      to worry about the technical aspects!
+    </p><p>
+      Together, we will <b>create a unique web3 experience</b> for you and your community
+      and <b>expand your business in Web3.</b>
+    </p>
+  </Text>
+  <ContactForm />
+  <Text heading="Do you want to participate in our great Web3 launch game?">
+    <p>
+      Only a few days left before the launch of our Web3 demo platform! For this
+      event, we are launching a big "treasure hunt" type game during which you
+      can win Kodao.io NFTs to collect and many more rewards.
+    </p>
+    <p>
+      If you want to participate in this game (totally free) just fill in your
+      email address below and we will send you the details in the coming days.
+    </p>
+    <MailForm />
+  </Text>
+  <Banner img={img} />
   <Cta
     title="Any questions? Check out our FAQ!"
     btnText="Check out our FAQ!"
     btnHref="/faq.html"
-  >
-    <p>
-      Web3, blockchain, NFTs, what do these terms mean and are they really
-      useful for your organization ? We answer to that in the FAQ!
-    </p>
-  </Cta>
+    text="Web3, blockchain, NFTs, what do these terms mean and are they really useful for your organization ? We answer to that in the FAQ!"
+  />
 </Layout>

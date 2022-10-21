@@ -1,142 +1,151 @@
 ---
 ---
 
-<div class="contact">
-  <h2 class="cta_title">Let's get started!</h2>
+<section class="section">
+  <div class="contact">
+    <h2 class="cta_title">Let's get started!</h2>
 
-  <form
-    id="contact-form"
-    class="contact_form"
-    name="contact"
-    method="POST"
-    data-netlify="true"
-    action="thank-you"
-    content-type="application/x-www-form-urlencoded"
-  >
-    <div class="form_inner">
-      <label for="name">Full name: *</label>
-      <input
-        class="form_input"
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Your full name"
-        required
-      />
-      <label for="email">Email address: *</label>
-      <input
-        class="form_input"
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Your email address"
-        required
-      />
-      <label for="topic">Topic of your request: *</label>
-      <select class="form_input form_select" id="subject" name="topic" required>
-        <option selected value="default">---</option>
-        <option value="starter">Web3 Starter Pack</option>
-        <option value="full">"A la carte" services</option>
-        <option value="partenaire">Partnership</option>
-        <option value="other">Other request</option>
-      </select>
-      <div class="form_client">
-        <label for="social">What type of organization do you represent? *</label
-        >
+    <form
+      id="contact-form"
+      class="contact_form"
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      action="thank-you"
+      content-type="application/x-www-form-urlencoded"
+    >
+      <div class="form_inner">
+        <label for="name">Full name: *</label>
+        <input
+          class="form_input"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your full name"
+          required
+        />
+        <label for="email">Email address: *</label>
+        <input
+          class="form_input"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your email address"
+          required
+        />
+        <label for="topic">Topic of your request: *</label>
         <select
-          class="form_input form_select organisation"
-          id="client-orga"
-          name="client-orga"
+          class="form_input form_select"
+          id="subject"
+          name="topic"
+          required
         >
           <option selected value="default">---</option>
-          <option value="entreprise">a company</option>
-          <option value="createur">a content creator</option>
-          <option value="nft">an NFT project</option>
-          <option value="association">an association</option>
-          <option value="other">other</option>
+          <option value="starter">Web3 Starter Pack</option>
+          <option value="full">"A la carte" services</option>
+          <option value="partenaire">Partnership</option>
+          <option value="other">Other request</option>
         </select>
-        <div id="entreprise">
-          <label for="social">Website : *</label>
+        <div class="form_client">
+          <label for="social"
+            >What type of organization do you represent? *</label
+          >
+          <select
+            class="form_input form_select organisation"
+            id="client-orga"
+            name="client-orga"
+          >
+            <option selected value="default">---</option>
+            <option value="entreprise">a company</option>
+            <option value="createur">a content creator</option>
+            <option value="nft">an NFT project</option>
+            <option value="association">an association</option>
+            <option value="other">other</option>
+          </select>
+          <div id="entreprise">
+            <label for="social">Website : *</label>
+            <input
+              class="form_input website"
+              type="website"
+              id="client-orga"
+              name="client-orga"
+              placeholder="www.yourwebsite.com"
+            />
+            <label for="budget">Budget : *</label>
+            <select class="form_input form_select" name="budget">
+              <option value="zero">- than 5K</option>
+              <option selected value="five">5K€ - 10K€</option>
+              <option value="ten">+ de 10K€</option>
+            </select>
+          </div>
+          <div id="createur">
+            <label for="social">Professional social network: *</label>
+            <input
+              class="form_input"
+              type="social"
+              id="social"
+              name="social"
+              placeholder="Your website or link to your Linkedin/Youtube/Twitter profile.."
+            />
+            <label for="budget">Budget : *</label>
+            <select class="form_input form_select" name="budget">
+              <option value="zero">- than 5K€</option>
+              <option selected value="five">5K€ - 10K€</option>
+              <option value="ten">+ de 10K€</option>
+            </select>
+          </div>
+        </div>
+        <div class="form_partenaire">
+          <label for="social"
+            >What type of organization do you represent? *</label
+          >
+          <select
+            class="form_input form_select organisation"
+            id="partenaire-orga"
+            name="partenaire-orga"
+          >
+            <option selected value="default">---</option>
+            <option value="company">a company</option>
+            <option value="creator">a content creator</option>
+            <option value="nft">an NFT project</option>
+            <option value="association">an association</option>
+            <option value="other">other</option>
+          </select>
+          <label for="social">Professional website or social network: *</label>
           <input
             class="form_input website"
             type="website"
-            id="client-orga"
-            name="client-orga"
-            placeholder="www.yourwebsite.com"
-          />
-          <label for="budget">Budget : *</label>
-          <select class="form_input form_select" name="budget">
-            <option value="zero">- than 5K</option>
-            <option selected value="five">5K€ - 10K€</option>
-            <option value="ten">+ de 10K€</option>
-          </select>
-        </div>
-        <div id="createur">
-          <label for="social">Professional social network: *</label>
-          <input
-            class="form_input"
-            type="social"
-            id="social"
-            name="social"
+            id="partenaire-web"
+            name="partenaire-web"
             placeholder="Your website or link to your Linkedin/Youtube/Twitter profile.."
           />
-          <label for="budget">Budget : *</label>
-          <select class="form_input form_select" name="budget">
-            <option value="zero">- than 5K€</option>
-            <option selected value="five">5K€ - 10K€</option>
-            <option value="ten">+ de 10K€</option>
-          </select>
         </div>
-      </div>
-      <div class="form_partenaire">
-        <label for="social">What type of organization do you represent? *</label
+        <label for="message">Message : *</label>
+        <textarea
+          class="form_input"
+          rows="8"
+          placeholder="Your message"
+          id="message"
+          name="message"
+          required></textarea>
+        <div data-netlify-recaptcha="true"></div>
+        <button
+          class="button button--contact"
+          type="submit"
+          id="submit"
+          name="submit"
         >
-        <select
-          class="form_input form_select organisation"
-          id="partenaire-orga"
-          name="partenaire-orga"
-        >
-          <option selected value="default">---</option>
-          <option value="company">a company</option>
-          <option value="creator">a content creator</option>
-          <option value="nft">an NFT project</option>
-          <option value="association">an association</option>
-          <option value="other">other</option>
-        </select>
-        <label for="social">Professional website or social network: *</label>
-        <input
-          class="form_input website"
-          type="website"
-          id="partenaire-web"
-          name="partenaire-web"
-          placeholder="Your website or link to your Linkedin/Youtube/Twitter profile.."
-        />
+          <span class="button_text">Send</span>
+        </button>
       </div>
-      <label for="message">Message : *</label>
-      <textarea
-        class="form_input"
-        rows="8"
-        placeholder="Your message"
-        id="message"
-        name="message"
-        required></textarea>
-      <div data-netlify-recaptcha="true"></div>
-      <button
-        class="button button--contact"
-        type="submit"
-        id="submit"
-        name="submit"
-      >
-        <span class="button_text">Send</span>
-      </button>
-    </div>
-    <div class="contact_responses">
-      <p class="contact_response" id="error"></p>
-      <p class="contact_response" id="success-msg"></p>
-    </div>
-  </form>
-  <output id="output" style="color: white"></output>
-</div>
+      <div class="contact_responses">
+        <p class="contact_response" id="error"></p>
+        <p class="contact_response" id="success-msg"></p>
+      </div>
+    </form>
+    <output id="output" style="color: white"></output>
+  </div>
+</section>
 
 <style>
   .button--contact {

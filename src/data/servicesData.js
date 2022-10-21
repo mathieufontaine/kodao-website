@@ -58,7 +58,7 @@ export const servicesData = [
     list: [
       "An introduction training to the management of a Web3 discord (strategy,security, moderation, bots integration ...).",
       "Creation of the complete discord and all the channels necessary to launch the Web3 project.",
-      "Creation of a private holders group</b> (private voice and text chat, exclusive content, announcements...) dedicated to owners of your digital art.",
+      "Creation of a private holders group (private voice and text chat, exclusive content, announcements...) dedicated to owners of your digital art.",
     ],
   },
   {

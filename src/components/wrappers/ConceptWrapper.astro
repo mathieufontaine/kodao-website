@@ -1,0 +1,44 @@
+---
+import CardConcept from "../cards/CardConcept.astro";
+
+interface Item {
+  heading: string;
+  img: string;
+  text: string;
+}
+
+export interface Props {
+  conceptItems: Item[];
+}
+
+const { conceptItems } = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="cards_wrapper">
+      {
+        conceptItems.map((item, index) => (
+          <CardConcept
+            index={index + 1}
+            heading={item.heading}
+            img={item.img}
+            text={item.text}
+            reversed={index % 2 !== 0}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .cards_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 20px;
+  }
+</style>

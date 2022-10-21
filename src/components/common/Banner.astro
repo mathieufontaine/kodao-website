@@ -1,0 +1,18 @@
+---
+export interface Props {
+  img: string;
+}
+
+const { img } = Astro.props;
+---
+
+<div class="banner">
+  <img src={img} alt="web3_kodao" />
+</div>
+
+<style>
+  .banner {
+    height: 280px;
+    width: 100%;
+  }
+</style>

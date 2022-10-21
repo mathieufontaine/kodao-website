@@ -1,18 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+import { conceptData } from "../data/conceptData";
+
+import info from "../assets/Illustrations/infographie_web3_en.svg";
+import web3 from "../assets/background/web3_kodao.jpeg";
+
 import Hero from "../components/sections/Hero.astro";
 import Flex from "../components/sections/Flex.astro";
 import Text from "../components/sections/Text.astro";
-import Card from "../components/cards/Card.astro";
 import Cta from "../components/sections/Cta.astro";
-
-import info from "../assets/Illustrations/infographie_web3_en.svg";
-import imgCard1 from "../assets/pictures/web3-strategy.jpeg";
-import imgCard2 from "../assets/pictures/funnel.jpeg";
-import imgCard3 from "../assets/pictures/community.jpeg";
-import imgCard4 from "../assets/pictures/web3-success.jpeg";
-import banner from "../assets/background/web3_kodao.jpeg";
+import Banner from "../components/common/Banner.astro";
+import ConceptWrapper from "../components/wrappers/ConceptWrapper.astro";
 ---
 
 <Layout title="Kodao.io - Concept" page="concept">
@@ -29,74 +28,14 @@ import banner from "../assets/background/web3_kodao.jpeg";
     ]}
   />
   <a class="anchor" id="concept"></a>
-  <section class="section section--concept">
-    <div class="container">
-      <Text title="Concept" heading="The future of community involvement">
-        <p class="intro_text">
-          Members of a community can now become financially and emotionally
-          involved around the same project, in a totally secure and
-          decentralized way. Discover a new way to interact with your community
-          with the Web3.
-        </p>
-      </Text>
-      <div class="content">
-        <Card index={1} text="Create and sell your digital art" img={imgCard1}>
-          <p>
-            With Kodao, your community members can now <b>collect</b> unique digital
-            art (NFT) pieces with your image, reinforcing their sense of belonging
-            to this group. They will be fully <b>owners</b> and they will be able
-            to freely exchange it, offer it, sell it, in a secure way and without
-            any control organization. The funds collected during the sale of these
-            collections of NFTs will allow you to <b
-              >finance your activity and new projects</b
-            >
-            appreciated by your community.
-          </p>
-        </Card>
-        <Card
-          index={2}
-          text="Grant exclusive access and rights"
-          img={imgCard2}
-          reversed={true}
-        >
-          <p>
-            The digital assets collected by your community members are <b
-              >the keys to many benefits</b
-            > such as access to a private chat, exclusive and unlockable content,
-            governance rights, private events, discounts, gifts ...
-            <b>Possibilities are endless</b> and not limited to a digital environment.
-            These digital keys are linked to the blockchain and therefore cannot
-            be duplicated.
-          </p>
-        </Card>
-        <Card index={3} text="Co-create with your community" img={imgCard3}>
-          <p>
-            All owners of this digital art can now <b
-              >get involved and participate actively</b
-            > in the development of your projects through a governance space reserved
-            for them (DAO). At Kodao.io, we are convinced that gathering a group
-            of active members sharing the same interests will allow you to develop
-            your business faster and to
-            <b>enhance the value of the content, products or services</b> you offer.
-          </p>
-        </Card>
-        <Card
-          index={4}
-          text="Reward your community"
-          img={imgCard4}
-          reversed={true}
-        >
-          <p>
-            Thanks to Web3 you can now <b>share the success</b> of your activity
-            with the most involved members.
-            <b>Reward your community</b> according to their commitment, on your terms,
-            as fairly and ethically as possible. Empower them and offer them unique
-            experiences !
-          </p>
-        </Card>
-      </div>
-    </div>
-  </section>
+  <Text title="Concept" heading="The future of community involvement">
+    <p>
+      Members of a community can now become financially and emotionally involved
+      around the same project, in a totally secure and decentralized way.
+      Discover a new way to interact with your community with the Web3.
+    </p>
+  </Text>
+  <ConceptWrapper conceptItems={conceptData} />
   <Cta
     title="Kodao.io helps you get started in Web3!"
     btnText="Discover our offers"
@@ -104,26 +43,13 @@ import banner from "../assets/background/web3_kodao.jpeg";
     btnText2="Contact us"
     btnHref2="./contact.html"
     white={true}
-  >
-    <p>
-      The Web3 allows to give much more freedom and and power to end users,
-      creating an infinite number of possibilities for organizations and their
-      communities. It's time to build, sell, innovate and share ! Get started
-      with web3 now!
-    </p>
-    <p>It's time to build, sell, innovate and share! Get into web3 now!</p>
-  </Cta>
-  <div class="banner">
-    <img src={banner} alt="web3_kodao" />
-  </div>
+    text="The Web3 allows to give much more freedom and and power to end users, creating an infinite number of possibilities for organizations and their communities. It's time to build, sell, innovate and share ! Get started with web3 now!"
+  />
+  <Banner img={web3} />
   <Cta
     title="Any questions? Check out our FAQ!"
     btnText="Check out our FAQ!"
     btnHref="/faq.html"
-  >
-    <p>
-      Web3, blockchain, NFTs, what do these terms mean and are they really
-      useful for your organization ? We answer to that in the FAQ!
-    </p>
-  </Cta>
+    text="Web3, blockchain, NFTs, what do these terms mean and are they really useful for your organization ? We answer to that in the FAQ!"
+  />
 </Layout>

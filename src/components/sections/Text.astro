@@ -1,17 +1,22 @@
 ---
 export interface Props {
-  title?: string;
   heading: string;
+  title?: string;
+  background?: string;
 }
 
-const { title = false, heading } = Astro.props;
+const { heading, title, background } = Astro.props;
 ---
 
-<div class="text">
-  {title && <p class="text_title">{title}</p>}
-  <h2 class="text_heading">{heading}</h2>
-  <slot />
-</div>
+<section class={background ? `section section--${background}` : "section"}>
+  <div class="container">
+    <div class="text">
+      {title && <p class="text_title">{title}</p>}
+      <h2 class="text_heading">{heading}</h2>
+      <slot />
+    </div>
+  </div>
+</section>
 
 <style>
   .text {
