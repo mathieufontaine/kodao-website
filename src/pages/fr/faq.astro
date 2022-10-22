@@ -1,0 +1,29 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { faqData } from "../../data/faqData";
+import web3 from "../../assets/pictures/web3-success.jpeg";
+
+import Hero from "../../components/sections/Hero.astro";
+import Text from "../../components/sections/Text.astro";
+import Cta from "../../components/sections/Cta.astro";
+import FaqWrapper from "../../components/wrappers/FaqWrapper.astro";
+import Banner from "../../components/common/Banner.astro";
+---
+
+<Layout title="Kodao.io - FAQ" fr={true} page="faq">
+  <Hero title="FAQ" page="faq" />
+  <Text heading="Une Question sur le Web 3 ou sur Kodao.io?">
+    <p>Consultez les réponses aux questions les plus posées ci-dessous.</p>
+  </Text>
+  <FaqWrapper faqData={faqData} />
+  <Cta
+    title="Kodao.io vous aide à vous lancer dans le web3 !"
+    btnText="Découvrez nos Offres"
+    btnHref="/fr/offres"
+    btnText2="Découvrez notre concept"
+    btnHref2="/fr/concept"
+    white={true}
+    text="Le Web3 permet de donner beaucoup plus de liberté et de pouvoir aux utilisateurs, créant ainsi une infinité de possibilités pour les organisations et leur communauté. Il est temps de construire, vendre, innover et partager ! Lancez-vous dans le web3 dès maintenant !"
+  />
+  <Banner img={web3} />
+</Layout>

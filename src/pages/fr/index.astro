@@ -1,51 +1,119 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Showcase from "../../components/Showcase.astro";
-import Flex from "../../components/Flex.astro";
+
+import { teamData } from "../../data/fr/teamData";
+import { socialData } from "../../data/fr/socialData";
+
 import concept from "../../assets/pictures/concept-section.png";
 import offer from "../../assets/pictures/solution-section.png";
+import banner from "../../assets/background/web3_communities.jpeg";
+
+import Showcase from "../../components/sections/Showcase.astro";
+import Flex from "../../components/sections/Flex.astro";
+import Text from "../../components/sections/Text.astro";
+import Cta from "../../components/sections/Cta.astro";
+import Banner from "../../components/common/Banner.astro";
+import Button from "../../components/common/Button.astro";
+import TeamWrapper from "../../components/wrappers/TeamWrapper.astro";
+import SocialWrapper from "../../components/wrappers/SocialWrapper.astro";
 ---
 
 <Layout page="home" title="Kodao.io" fr={true}>
   <Showcase
-    title="Impliquez votre communauté dans le Web3"
-    description="Endless possibilities are waiting for you"
-    ctaText="Book a Demo"
-    downText="Discover"
+    title="Impliquez votre communauté via le Web3"
+    description="Des possibilités infinies vous attendent"
+    btnText="Demandez une démo"
+    btnHref="/fr/contact"
+    downText="Découvrir"
   />
   <a class="anchor" id="concept"></a>
   <Flex
     title="concept"
-    heading="The future of community involvement"
-    description="Blockchain technology and NFTs allow more freedom and power to end users, creating a new way of interaction and collaboration between organizations and their community."
+    heading="L'avenir de l'engagement communautaire"
+    description="La technologie de la blockchain et des NFTs donnent beaucoup plus de liberté et de pouvoir aux utilisateurs, créant ainsi une nouvelle manière d'échanger et de collaborer entre les organisations et leur communauté.."
     white={true}
     image={concept}
     items={[
-      "Create and sell your digital art (NFT) to your audience",
-      "Grant exclusive access and rights to make them members",
-      "Co-create to involve them in your project",
-      "Reward your most engaged members",
+      "Créez vos collections de NFTs et vendez les à votre audience",
+      "Donnez leur des accès et des droits exclusifs pour en faire des membres",
+      "Récompensez vos membres les plus impliqués",
+      "Récompensez vos membres les plus impliqués",
     ]}
-  >
-    <a href="./offers.html" class="button button--flex" type="button">
-      <span class="button_text">Discover our offers</span>
-    </a>
-  </Flex>
+    btnHref="/fr/concept"
+    btnText="Découvrez notre Concept"
+  />
   <Flex
-    title="offers"
-    heading="Kodao.io helps you create and develop your Web3 project"
-    description="Starting a web3 project can be frightening as the tools and the technology evolve at a very high pace. At Kodao.io, our goal is to help you get started in the best possible conditions.."
+    title="offres"
+    heading="Kodao.io vous accompagne dans la création et le développement de votre projet Web3"
+    description="Démarrer un projet web3 peut faire peur car les outils et la technologie évoluent à un rythme très élevé. Chez Kodao.io, notre objectif est de vous aider à vous lancer dans les meilleures conditions possibles."
     image={offer}
     reversed={true}
     items={[
-      "Offer a unique experience to your community members with the power of Web3",
-      "For a simple and efficient start, opt for a turnkey solution with the Web3 Starter Pack",
-      "Develop your own Web3 ecosystem with our ailor-made services",
-      "Get a custom support throughout the creation of your project.",
+      "Proposez une expérience unique aux membres de votre communauté avec le Web3.",
+      "Pour un démarrage simple et efficace, optez pour une solution clé en main avec le Web3 Starter Pack.",
+      "Développez votre écosystème Web3 personnalisé avec nos services sur mesure.",
+      "Bénéficiez d'un accompagnement personnalisé tout au long du projet.",
     ]}
+    btnHref="/fr/concept"
+    btnText="Découvrez nos Offres"
+  />
+  <Text
+    title="Lancez-vous !"
+    heading="Est-ce que le Web3 est fait pour moi?"
+    background="white"
   >
-    <a href="./concept.html" class="button button--flex" type="button">
-      <span class="button_text">Discover our offers</span>
-    </a>
-  </Flex>
+    <p>
+      Que vous soyez une <b>entreprise, une association</b> ou bien
+      <b>un créateur de contenu</b>, de nombreuses opportunités s'offrent à vous
+      grâce au Web3. Avec à Kodao.io,
+      <b
+        >vous pouvez désormais adopter cette révolution technologique sans vous
+        soucier des aspects techniques.</b
+      >
+    </p>
+    <br />
+    <p>
+      Si vous avez <b>déjà créé un token ou un projet NFT</b> et souhaitez désormais
+      <b>donner plus utilité à votre communauté</b> nous pouvons vous aider à faire
+      passer votre projet au niveau supérieur !
+    </p>
+    <Button btnText="C'est parti !" btnHref="/fr/contact" type="cta" />
+  </Text>
+  <Banner img={banner} />
+  <TeamWrapper teamMembers={teamData}>
+    <Text
+      heading="Une équipe spécialisée et passionnée par le Web3"
+      background="transparent"
+    >
+      <p>
+        Kodao.io a été créé en 2021 après avoir constaté une incompréhension de
+        l'environnement Web3. Nous avons décidé de créer <b
+          >une agence de développement web et de conseils</b
+        > afin d'aider les organisations et les créateurs à passer du système traditionnel
+        à un nouveau <b>système innovant et décentralisé</b>.
+      </p>
+      <p>
+        Nous apporterons notre expertise dans tous les aspects de votre projet
+        Web3.
+      </p>
+    </Text>
+  </TeamWrapper>
+  <Cta
+    title="Une Question ? Consultez notre FAQ !"
+    btnText2="Voir la FAQ"
+    btnHref2="/fr/faq"
+    white={true}
+    text="Le Web3, la blockchain, les NFTs, que signifient ces termes et sont-ils vraiment utiles pour votre organisation ? On y répond dans la FAQ !"
+  />
+  <SocialWrapper
+    title="Rejoignez la communauté Kodao et découvrez le monde du Web3 !"
+    socialItems={socialData}
+  />
+  <Cta
+    title="Pret à vous lancer dans le Web3 ?"
+    btnText="C'est parti !"
+    btnHref="/fr/offres"
+    paddingTop={true}
+    text="Kodao.io vous vous accompagne dans toutes les étapes de votre projet"
+  />
 </Layout>

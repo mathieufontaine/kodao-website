@@ -5,31 +5,35 @@ export interface Props {
   title: string;
   description: string;
   btnText: string;
+  btnHref: string;
   downText: string;
 }
-const { title, description, btnText, downText } = Astro.props;
+const { title, description, btnText, btnHref, downText } = Astro.props;
 ---
 
-<section id="hero" class="section showcase">
-  <div class="container container--showcase">
-    <div class="showcase_text">
-      <h1
-        class="showcase_title"
-        data-aos="zoom-in-down"
-        data-aos-duration="1000"
-      >
-        {title}
-      </h1>
-      <p
-        class="showcase_subtitle"
-        data-aos="flip-left"
-        data-aos-duration="1000"
-      >
-        {description}
-      </p>
-      <Button btnHref="./contact.html" btnText={btnText} type="hero" />
+<section class="section showcase">
+  <div class="wrapper">
+    <div class="container">
+      <div class="showcase_text">
+        <h1
+          class="showcase_title"
+          data-aos="zoom-in-down"
+          data-aos-duration="1000"
+        >
+          {title}
+        </h1>
+        <p
+          class="showcase_subtitle"
+          data-aos="flip-left"
+          data-aos-duration="1000"
+        >
+          {description}
+        </p>
+        <Button btnHref={btnHref} btnText={btnText} type="hero" />
+      </div>
     </div>
   </div>
+
   <a href="#concept" class="discover">
     <b>{downText}</b>
   </a>
@@ -41,7 +45,7 @@ const { title, description, btnText, downText } = Astro.props;
 <style>
   .showcase {
     padding-top: 0;
-    height: 100vh;
+    min-height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.05)),
       url("../../assets/background/web3_kodao.jpeg");
     background-attachment: fixed;
@@ -51,6 +55,14 @@ const { title, description, btnText, downText } = Astro.props;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-position: center center;
+  }
+
+  .wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: 100%;
   }
 
   .showcase_text {

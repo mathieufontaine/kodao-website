@@ -98,14 +98,15 @@ const { index, heading, img, text, reversed } = Astro.props;
   }
   @media (max-width: 800px) {
     .card {
-      width: 90%;
       margin: 0px;
       flex-direction: column;
-      background: none;
+      background-image: linear-gradient(90deg, #5d337e 0%, black 60%);
       gap: 10px;
-      margin: 20px 0;
+      padding: 20px;
     }
-
+    .card--reversed {
+      background-image: linear-gradient(-90deg, #5d337e 0%, black 60%);
+    }
     .card_layer {
       width: 100%;
       order: 1;
@@ -113,11 +114,9 @@ const { index, heading, img, text, reversed } = Astro.props;
       height: 200px;
       border-radius: 0;
     }
-
     .card_content {
       padding: 0;
     }
-
     .card_text {
       width: 100%;
       order: -1;
@@ -130,12 +129,6 @@ const { index, heading, img, text, reversed } = Astro.props;
 
     .card_title {
       text-align: center;
-    }
-  }
-
-  @media (max-width: 615px) {
-    .card {
-      padding: 0;
     }
   }
 </style>

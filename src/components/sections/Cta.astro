@@ -51,7 +51,6 @@ const {
     display: grid;
     width: 80%;
   }
-
   .cta_title {
     padding-bottom: 10px;
   }
@@ -59,7 +58,6 @@ const {
     display: grid;
     grid-template-columns: 2fr 1fr;
   }
-
   .cta--inverse {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -71,40 +69,33 @@ const {
   .cta--inverse .cta_text {
     text-align: left;
   }
-
   .cta_btn {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     max-width: 1200px;
     margin: auto;
+    gap: 14px;
   }
-
   .cta_btn--col {
     flex-direction: column;
   }
 
   @media (max-width: 800px) {
     .cta {
-      width: 100%;
-    }
-  }
-
-  @media (max-width: 800px) {
-    .cta {
       grid-template-columns: 1fr;
+      width: 100%;
       grid-gap: 0;
       text-align: center;
-    }
-    .cta_btn {
-      flex-direction: column;
-      order: 1;
-      padding: 0;
     }
   }
   @media (max-width: 615px) {
     .cta_text {
       text-align: center;
+    }
+    .cta_btn {
+      gap: 0;
     }
   }
 </style>

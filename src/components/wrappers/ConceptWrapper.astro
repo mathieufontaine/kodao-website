@@ -33,18 +33,21 @@ const { conceptItems } = Astro.props;
 </section>
 
 <style>
+  .container {
+    padding-top: 0;
+  }
   .items_wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-top: 20px;
+    padding: 20px 0;
   }
   @media (max-width: 800px) {
     .items_wrapper {
       padding-top: 0;
-      width: 90%;
+      gap: 20px;
     }
   }
 </style>

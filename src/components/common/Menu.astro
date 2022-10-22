@@ -1,0 +1,220 @@
+---
+export interface Props {
+  fr?: boolean;
+  page: string;
+  englishFlag: string;
+  frenchFlag: string;
+}
+
+const { fr, page, englishFlag, frenchFlag } = Astro.props;
+---
+
+<!------Menu Mobile-------->
+<nav class="menu">
+  <ul class="menu_list">
+    <li class={page !== "home" ? "menu_item" : "menu_item menu_item--active"}>
+      <a href={fr ? "fr/" : "/"} id="nav-web3" class="menu_link">Home</a>
+    </li>
+    <li
+      class={page !== "concept" ? "menu_item" : "menu_item menu_item--active"}
+    >
+      <a
+        href={fr ? "fr/concept" : "/concept"}
+        id="nav-concept"
+        class="menu_link">Concept</a
+      >
+    </li>
+    <li class={page !== "offers" ? "menu_item" : "menu_item menu_item--active"}>
+      <a href={fr ? "fr/offers" : "/offers"} id="nav-offer" class="menu_link"
+        >{fr ? "Offres" : "Offers"}
+      </a>
+    </li>
+    <li
+      class={page !== "contact" ? "menu_item" : "menu_item menu_item--active"}
+    >
+      <a
+        href={fr ? "fr/contact" : "/contact"}
+        id="nav-contact"
+        class="menu_link">Contact</a
+      >
+    </li>
+    <li class={page !== "faq" ? "menu_item" : "menu_item menu_item--active"}>
+      <a href={fr ? "fr/faq" : "/faq"} id="nav-faq" class="menu_link">FAQ</a>
+    </li>
+    <li class="menu_item menu_item--blog">
+      <a href="https://blog.kodao.io" id="nav-blog" class="menu_link">Blog</a>
+    </li>
+  </ul>
+  <div>
+    <div class="language">
+      {
+        fr ? (
+          <a href="/" class="language_link">
+            <img class="language_img" src={englishFlag} alt="english flag" />{" "}
+            <span class="language_text">EN</span>
+          </a>
+        ) : (
+          <a href="/fr" class="language_link">
+            <img class="language_img" src={frenchFlag} alt="drapeau français" />{" "}
+            <span class="language_text">FR</span>
+          </a>
+        )
+      }
+    </div>
+    <div class="menu_item menu_item--social">
+      <p class="social_title">Follow Us</p>
+      <div class="social-links">
+        <a href="https://discord.gg/BXtp6szz7C"
+          ><i class="fab fa-discord"></i>
+        </a>
+        <a href="https://twitter.com/kodao_io"
+          ><i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .menu {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 10vh;
+    right: -100%;
+    min-height: 90vh;
+    width: 50%;
+    z-index: 100;
+    padding: 8%;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .menu--active {
+    display: block;
+    right: 0;
+  }
+
+  .menu_list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .menu_item {
+    padding: 1.5rem 0;
+    color: var(--secondary-color);
+    text-align: center;
+  }
+
+  .menu_item::after {
+    content: "";
+    height: 2px;
+    width: 0%;
+    background: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    transition: 0.5s;
+  }
+
+  .menu_item:hover::after {
+    width: 100%;
+  }
+
+  .navbar_item--blog:after,
+  .menu_item--blog:after {
+    height: 0;
+  }
+
+  .menu_item--active .menu_link {
+    color: var(--accent-color);
+  }
+
+  /* .menu_item--social {
+    margin: auto 0 50px;
+  } */
+
+  .menu_item--social::marker {
+    width: 0px;
+  }
+
+  .menu_link {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  /* language */
+
+  .language {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .language_text {
+    font-size: 2rem;
+    color: white;
+  }
+  .language_link {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .language_img {
+    width: 4rem;
+    margin-right: 10px;
+    object-fit: contain;
+  }
+
+  .language_img:hover {
+    border: 2px solid white;
+    border-radius: 100%;
+  }
+
+  /* social */
+
+  .social_title {
+    font-size: 2rem;
+    position: relative;
+    color: white;
+    text-align: center;
+    margin: 3rem 0;
+  }
+
+  .social_title::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    background-color: var(--accent-color);
+    height: 2px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .social-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+  }
+  .social-links a {
+    display: inline-block;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--secondary-color);
+    margin: 10px;
+  }
+
+  @media (max-width: 800px) {
+    .menu {
+      background-color: rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>

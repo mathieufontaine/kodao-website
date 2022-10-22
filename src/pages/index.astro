@@ -23,6 +23,7 @@ import SocialWrapper from "../components/wrappers/SocialWrapper.astro";
     title="Involve your community through Web3"
     description="Endless possibilities are waiting for you"
     btnText="Book a Demo"
+    btnHref="/contact"
     downText="Discover"
   />
   <a class="anchor" id="concept"></a>
@@ -38,7 +39,7 @@ import SocialWrapper from "../components/wrappers/SocialWrapper.astro";
       "Co-create to involve them in your project",
       "Reward your most engaged members",
     ]}
-    btnHref="./offers.html"
+    btnHref="/offers"
     btnText="Discover our concept"
   />
   <Flex
@@ -53,22 +54,27 @@ import SocialWrapper from "../components/wrappers/SocialWrapper.astro";
       "Develop your own Web3 ecosystem with our ailor-made services",
       "Get a custom support throughout the creation of your project.",
     ]}
-    btnHref="./concept.html"
+    btnHref="/concept"
     btnText="Discover our offers"
   />
-  <Text title="Let's get started" heading="Is Web3 for you?" background="white">
+  <Text
+    title="Let's get started"
+    heading="Is Web3 really for me?"
+    background="white"
+  >
     <p>
       Whether you are <b>a company, a content creator or an association</b>,
       many opportunities are now available for you through Web3. With Kodao.io,
       you can now <b>adopt this technological revolution</b> without having to worry
       about the technical aspects!
     </p>
+    <br />
     <p>
       If you have <b>already created a token or an NFT project</b> and want to <b
         >give more utilities to your community</b
       > we can help you take your project to the next level!
     </p>
-    <Button btnText="Let's go!" btnHref="/contact.html" type="cta" />
+    <Button btnText="Let's go!" btnHref="/contact" type="cta" />
   </Text>
   <Banner img={banner} />
   <TeamWrapper teamMembers={teamData}>
@@ -90,7 +96,7 @@ import SocialWrapper from "../components/wrappers/SocialWrapper.astro";
   <Cta
     title="Any questions? Check out our FAQ!"
     btnText2="Check out our FAQ!"
-    btnHref2="/faq.html"
+    btnHref2="/faq"
     white={true}
     text="Web3, blockchain, NFTs, what do these terms mean and are they really useful for your organization ? We answer to that in the FAQ!"
   />
@@ -101,7 +107,7 @@ import SocialWrapper from "../components/wrappers/SocialWrapper.astro";
   <Cta
     title="Ready to get started with Web3?"
     btnText="Let's go!"
-    btnHref="/offers.html"
+    btnHref="/offers"
     paddingTop={true}
     text="Kodao.io supports you in all the steps of your project"
   />

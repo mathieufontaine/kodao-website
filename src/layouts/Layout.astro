@@ -2,6 +2,7 @@
 import Footer from "../components/common/Footer.astro";
 import Navbar from "../components/common/Navbar.astro";
 import "../styles/global.css";
+
 export interface Props {
   page: string;
   title: string;
@@ -46,6 +47,7 @@ const { page, title, fr = false } = Astro.props;
       src="https://kit.fontawesome.com/39251cc2ac.js"
       crossorigin="anonymous"
     ></script>
+    <script src="../scripts/menu.js"></script>
     <title>{title}</title>
   </head>
 

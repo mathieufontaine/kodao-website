@@ -1,0 +1,43 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import web3 from "../../assets/background/web3_kodao.jpeg";
+
+import Hero from "../../components/sections/Hero.astro";
+import Text from "../../components/sections/Text.astro";
+import Cta from "../../components/sections/Cta.astro";
+import ContactForm from "../../components/forms/ContactForm.astro";
+import Banner from "../../components/common/Banner.astro";
+---
+
+<Layout title="Kodao.io - Contact" fr={true} page="contact">
+  <Hero title="Contactez-nous" page="contact" />
+  <Text heading="Le Web3 n'est plus qu'à un clic !" background="white">
+    <p>
+      Vous êtes intéressé par le Web3 et souhaitez vous lancer en étant
+      accompagné, sans vous soucier des aspects techniques ?
+    </p>
+    <p>
+      Contactez nous en expliquant brièvement vos besoins et nous discuterons
+      ensemble des services que nous pouvons vous apporter. Nous conviendrons
+      également d'une date si vous souhaitez une démonstration de nos outils
+      web3.
+    </p>
+  </Text>
+  <ContactForm fr={true} />
+  <Cta
+    title="Kodao.io vous aide à vous lancer dans le web3 !"
+    btnText="Découvrez notre concept"
+    btnHref="/fr/concept"
+    btnText2="Découvrez nos offres"
+    btnHref2="/fr/offres"
+    white={true}
+    text="Le Web3 permet de donner beaucoup plus de liberté et de pouvoir aux utilisateurs, créant ainsi une infinité de possibilités pour les organisations et leur communauté. Il est temps de construire, vendre, innover et partager ! Lancez-vous dans le web3 dès maintenant !"
+  />
+  <Banner img={web3} />
+  <Cta
+    title="Une Question ? Consultez notre FAQ !"
+    btnText2="Voir la FAQ"
+    btnHref2="/fr/faq"
+    text="Le Web3, la blockchain, les NFTs, que signifient ces termes et sont-ils vraiment utiles pour votre organisation ? On y répond dans la FAQ !"
+  />
+</Layout>

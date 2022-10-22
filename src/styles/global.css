@@ -63,8 +63,8 @@ h4 {
 p,
 li {
   font-weight: 100;
-  font-size: 1.4rem;
-  line-height: 2.5rem;
+  font-size: 1.6rem;
+  line-height: 3rem;
 }
 
 b {
@@ -84,6 +84,7 @@ button {
   border: none;
   color: inherit;
   background: none;
+  cursor: pointer;
 }
 
 .text-left {
@@ -190,9 +191,9 @@ button {
   }
 }
 
-@media (max-width: 340px) {
+@media (max-width: 350px) {
   html {
-    font-size: 8px;
+    font-size: 7px;
   }
   h1 {
     font-size: 4rem;

@@ -1,0 +1,60 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import { conceptData } from "../../data/fr/conceptData";
+
+import info from "../../assets/Illustrations/infographie_web3_en.svg";
+import web3 from "../../assets/background/web3_kodao.jpeg";
+
+import Hero from "../../components/sections/Hero.astro";
+import Flex from "../../components/sections/Flex.astro";
+import Text from "../../components/sections/Text.astro";
+import Cta from "../../components/sections/Cta.astro";
+import Banner from "../../components/common/Banner.astro";
+import ConceptWrapper from "../../components/wrappers/ConceptWrapper.astro";
+---
+
+<Layout title="Kodao.io - Concept" fr={true} page="concept">
+  <Hero
+    title="Une expérience unique pour vous et votre communauté"
+    page="concept"
+  />
+  <Flex
+    title="Le Web3"
+    heading="De consommateur à co-détenteur"
+    white={true}
+    image={info}
+    bold={false}
+    items={[
+      "Le Web 1.0 consistait à afficher et consommer du contenu en ligne (Wikipédia, Amazon, etc..).",
+      "Le Web 2.0 a permis aux communautés d'interagir avec des marques ou des créateurs via les plateformes sociales (Youtube, Instagram, Twitter, etc..).",
+      "Le Web 3.0 permet d'être propriétaire de ses données sur internet. Grâce à la technologie de la Blockchain, il est désormais possible de détenir des objets digitaux (NFT) pouvant représenter l'appartenance à une communauté. Le Web3 propose donc une alternative au modèle centralisé imposé par les plateformes sociales, diminuant ainsi le pouvoir de ces intermédiaires afin de le redistribuer aux créateurs et à leurs communautés",
+    ]}
+  />
+  <a class="anchor" id="concept"></a>
+  <Text title="Concept" heading="L'avenir de l'engagement communautaire">
+    <p>
+      Les membres d'une communauté peuvent désormais s'impliquer financièrement
+      et émotionnellement autour d'un même projet, de manière totalement
+      sécurisée et décentralisée. Découvrez une nouvelle manière d'échanger avec
+      votre communauté via le Web3.
+    </p>
+  </Text>
+  <ConceptWrapper conceptItems={conceptData} />
+  <Cta
+    title="Kodao.io vous aide à vous lancer dans le web3 !"
+    btnText="Découvrez nos Offres"
+    btnHref="/fr/offres"
+    btnText2="Contactez-nous"
+    btnHref2="/fr/contact"
+    white={true}
+    text="Le Web3 permet de donner beaucoup plus de liberté et de pouvoir aux utilisateurs, créant ainsi une infinité de possibilités pour les organisations et leur communauté. Il est temps de construire, vendre, innover et partager ! Lancez-vous dans le web3 dès maintenant !"
+  />
+  <Banner img={web3} />
+  <Cta
+    title="Une Question ? Consultez notre FAQ !"
+    btnText2="Voir la FAQ"
+    btnHref2="/fr/faq"
+    text="Le Web3, la blockchain, les NFTs, que signifient ces termes et sont-ils vraiment utiles pour votre organisation ? On y répond dans la FAQ !"
+  />
+</Layout>

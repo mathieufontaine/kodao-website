@@ -39,6 +39,7 @@ const { btnHref, btnText, type } = Astro.props;
   .button--primary {
     background: var(--primary-color);
     color: var(--secondary-color);
+    border: 1px solid white;
   }
 
   .button--secondary {
@@ -61,7 +62,6 @@ const { btnHref, btnText, type } = Astro.props;
   }
 
   .button--fixed {
-    display: none;
     position: fixed;
     bottom: 5px;
     right: 5px;
@@ -73,6 +73,7 @@ const { btnHref, btnText, type } = Astro.props;
     font-weight: 700;
     border-radius: 5px;
     border: 2px solid var(--secondary-color);
+    margin: 10px 20px;
   }
 
   .button--fixed:hover {
@@ -81,7 +82,7 @@ const { btnHref, btnText, type } = Astro.props;
   }
 
   .button--flex {
-    margin-top: 20px;
+    margin: 20px 0;
   }
   .button_text {
     z-index: 2;
@@ -101,12 +102,16 @@ const { btnHref, btnText, type } = Astro.props;
     }
     .button {
       /* width: auto; */
-      margin: 10px auto 0;
+      margin-top: 10px;
     }
   }
   @media (max-width: 340px) {
     .button {
       width: 100%;
+      padding: 10px 15px;
+    }
+    .button--fixed {
+      width: auto;
     }
   }
 </style>

@@ -1,0 +1,83 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import { servicesData } from "../../data/servicesData";
+import { starterData } from "../../data/starterData";
+
+import img from "../../assets/pictures/web3-success.jpeg";
+import web3 from "../../assets/background/web3_kodao.jpeg";
+
+import Hero from "../../components/sections/Hero.astro";
+import Text from "../../components/sections/Text.astro";
+import Cta from "../../components/sections/Cta.astro";
+import MailForm from "../../components/forms/MailForm.astro";
+import StarterWrapper from "../../components/wrappers/StarterWrapper.astro";
+import ServicesWrapper from "../../components/wrappers/ServicesWrapper.astro";
+import ContactForm from "../../components/forms/ContactForm.astro";
+import Banner from "../../components/common/Banner.astro";
+---
+
+<Layout title="Kodao.io - Offers" fr={true} page="offres">
+  <Hero
+    title="Découvrez nos offres Web3 adaptés à vos besoins !"
+    page="offers"
+  />
+  <Text
+    title="Bienvenu dans le Web3"
+    heading="Web3 Starter Pack"
+    background="white"
+  >
+    <p>
+      Ce pack s'adresse à toutes les organisations désireuses de se lancer dans
+      le Web3 de la manière la plus <b>simple et efficace</b> possible.
+    </p>
+    <p>
+      Kodao vous propose une <b> solution Web3 en 4 étapes</b> pour vous rapprocher
+      de votre communauté tout en continuant à développer votre activité.
+    </p>
+  </Text>
+  <StarterWrapper offers={starterData} />
+  <ServicesWrapper
+    heading="Services Web3 («à la carte»)"
+    intro="Qu'il s'agisse de votre lancement dans le Web3 ou d'un projet Web3 déjà existant, Kodao.io vous propose une multitude de services pour développer des fonctionnalités avancées au sein de votre communauté. Construisez votre écosystème Web3, proposez une expérience unique à votre communauté, renforcez votre image de marque et financez de nouveaux projets !"
+    img={web3}
+    services={servicesData}
+  />
+  <Text
+    heading="Kodao vous accompagne dans la création de votre projet Web3"
+    background="white"
+  >
+    <p>
+      Notre mission est de vous accompagner dans le <b
+        >développement de votre activité dans le Web3</b
+      > et de vous permettre de <b>créer une expérience web3 unique</b> pour vous
+      et votre communauté.
+    </p>
+    <p>
+      Vous aurez accès aux outils et conseils nécessaires pour vous lancer dans
+      cette aventure <b>sans vous soucier de tous les aspects techniques !</b>
+    </p>
+  </Text>
+  <ContactForm fr={true} />
+  <Text heading="Vous souhaitez participer à notre grand jeu de lancement ?">
+    <p>
+      Plus que jours avant le lancement de notre plateforme démo Web3 ! Pour cet
+      événement, nous lançons un grand jeu de type "chasse au trésor" au cours
+      du quel vous pourrez gagner des NFTs Kodao.io à collectionner et de
+      nombreux autres lots.
+    </p>
+    <p>
+      Si vous souhaitez participer à ce jeu (totalement gratuit) il suffit de
+      renseigner votre adresse email ci-dessous et nous vous enverrons les
+      détails dans les prochains jours.
+    </p>
+    <MailForm />
+  </Text>
+  <Banner img={img} />
+  <Cta
+    title="Une Question ? Consultez notre FAQ !"
+    btnText2="Voir la FAQ"
+    btnHref2="/fr/faq"
+    text="Le Web3, la blockchain, les NFTs, que signifient ces termes et sont-ils vraiment utiles pour votre organisation ? On y répond dans la FAQ !"
+  />
+</Layout>

@@ -2,7 +2,8 @@
 import logo from "../../assets/logo/logo-white.svg";
 import englishFlag from "../../assets/language/united-kingdom.png";
 import frenchFlag from "../../assets/language/france.png";
-
+import Menu from "./Menu.astro";
+import Button from "./Button.astro";
 export interface Props {
   page: string;
   fr?: boolean;
@@ -22,7 +23,7 @@ const { fr = false, page } = Astro.props;
           ? "navbar_item"
           : "navbar_item navbar_item--active"}
       >
-        <a href={fr ? "fr/" : "/"} id="nav-web3" class="navbar_link">Home</a>
+        <a href={fr ? "/fr" : "/"} id="nav-web3" class="navbar_link">Home</a>
       </li>
       <li
         class={page !== "concept"
@@ -30,7 +31,7 @@ const { fr = false, page } = Astro.props;
           : "navbar_item navbar_item--active"}
       >
         <a
-          href={fr ? "fr/concept" : "/concept"}
+          href={fr ? "/fr/concept" : "/concept"}
           id="nav-concept"
           class="navbar_link">Concept</a
         >
@@ -41,7 +42,7 @@ const { fr = false, page } = Astro.props;
           : "navbar_item navbar_item--active"}
       >
         <a
-          href={fr ? "fr/offers" : "/offers"}
+          href={fr ? "/fr/offres" : "/offers"}
           id="nav-offer"
           class="navbar_link">{fr ? "Offres" : "Offers"}</a
         >
@@ -52,7 +53,7 @@ const { fr = false, page } = Astro.props;
           : "navbar_item navbar_item--active"}
       >
         <a
-          href={fr ? "fr/contact" : "/contact"}
+          href={fr ? "/fr/contact" : "/contact"}
           id="nav-contact"
           class="navbar_link">Contact</a
         >
@@ -62,7 +63,8 @@ const { fr = false, page } = Astro.props;
           ? "navbar_item"
           : "navbar_item navbar_item--active"}
       >
-        <a href={fr ? "fr/faq" : "/faq"} id="nav-faq" class="navbar_link">FAQ</a
+        <a href={fr ? "/fr/faq" : "/faq"} id="nav-faq" class="navbar_link"
+          >FAQ</a
         >
       </li>
       <li class="navbar_item navbar_item--blog">
@@ -75,7 +77,7 @@ const { fr = false, page } = Astro.props;
       </li>
     </ul>
   </nav>
-  <div class="language">
+  <div class="language language--desktop">
     {
       fr ? (
         <a href="/" class="language_link">
@@ -93,64 +95,47 @@ const { fr = false, page } = Astro.props;
     <i class="bx bx-x close"></i>
   </div>
 </header>
-<!------Menu Mobile-------->
-<nav class="menu">
-  <ul class="menu_list">
-    <li class="menu_item menu_item--active">
-      <a href={fr ? "fr/" : "/"} id="nav-web3" class="menu_link">Home</a>
-    </li>
-    <li class="menu_item">
-      <a
-        href={fr ? "fr/concept" : "/concept"}
-        id="nav-concept"
-        class="menu_link">Concept</a
-      >
-    </li>
-    <li class="menu_item">
-      <a href={fr ? "fr/offers" : "/offers"} id="nav-offer" class="menu_link"
-        >Offers</a
-      >
-    </li>
-    <li class="menu_item">
-      <a
-        href={fr ? "fr/contact" : "/contact"}
-        id="nav-contact"
-        class="menu_link">Contact</a
-      >
-    </li>
-    <li class="menu_item">
-      <a href={fr ? "fr/faq" : "/faq"} id="nav-faq" class="menu_link">FAQ</a>
-    </li>
-    <li class="menu_item menu_item--blog">
-      <a href="https://blog.kodao.io" id="nav-blog" class="menu_link">Blog</a>
-    </li>
-    <li class="menu_item menu_item--social">
-      <p class="social_title">Follow Us</p>
-      <div class="social-links">
-        <a href="https://discord.gg/BXtp6szz7C"
-          ><i class="fab fa-discord"></i>
-        </a>
-        <a href="https://twitter.com/kodao_io"
-          ><i class="fab fa-twitter"></i>
-        </a>
-      </div>
-    </li>
-  </ul>
-</nav>
-<a href="./contact.html" class="button button--fixed" type="button" id="cta">
-  {fr ? "Réserver une démo" : "Book a demo"}
-</a>
+<Menu fr={fr} page={page} englishFlag={englishFlag} frenchFlag={frenchFlag} />
+<div id="cta">
+  <Button
+    btnHref={fr ? "/fr/contact" : "/contact"}
+    btnText={fr ? "Réserver une démo" : "Book a demo"}
+    type="fixed"
+  />
+</div>
 <button id="topBtn"><i class="fa-solid fa-angle-up"></i></button>
-
 <style>
-  /* Header */
+  #cta {
+    display: none;
+  }
 
+  #topBtn {
+    display: none;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    z-index: 99;
+    font-size: 16px;
+    border: 2px solid white;
+    outline: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin: 10px 20px;
+    border-radius: 4px;
+  }
+
+  #topBtn:hover {
+    background-color: var(--accent-color);
+  }
+  /* Header */
   .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: var(--secondary-color);
-    height: 10vh;
+    min-height: 10vh;
     position: fixed;
     width: 100%;
     z-index: 10;
@@ -165,7 +150,7 @@ const { fr = false, page } = Astro.props;
   }
 
   .logo {
-    width: min(30vw, 250px);
+    width: 150px;
     object-fit: contain;
   }
 
@@ -181,10 +166,12 @@ const { fr = false, page } = Astro.props;
   .menu_item {
     list-style: none;
     display: inline-block;
-    margin: 0 18px;
     position: relative;
   }
 
+  .navbar_item {
+    margin-right: 10px;
+  }
   .navbar_item::after {
     content: "";
     height: 2px;
@@ -224,17 +211,67 @@ const { fr = false, page } = Astro.props;
     color: var(--secondary-color);
   }
 
+  /* hamburger */
+
+  .hamburger {
+    display: none;
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .hamburger i {
+    position: absolute;
+    color: var(--secondary-color);
+    font-size: 4rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  /* hamburger */
+
+  .hamburger i.close {
+    opacity: 0;
+  }
+
+  .hamburger--active {
+    background: var(--accent-color);
+  }
+
+  .hamburger--active i {
+    color: var(--secondary-color);
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+
+  .hamburger--active i.close {
+    opacity: 1;
+  }
+
+  .hamburger--active i.open {
+    opacity: 0;
+  }
   /* Menu */
 
   .menu {
     display: none;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     top: 10vh;
     right: -100%;
-    height: 90vh;
-    padding: 20px;
+    min-height: 90vh;
+    width: 50%;
     z-index: 100;
-    padding: 20px 5%;
+    padding: 8%;
     background-color: rgba(0, 0, 0, 0.8);
     transition: all 0.5s ease-in-out;
   }
@@ -250,8 +287,9 @@ const { fr = false, page } = Astro.props;
     height: 100%;
   }
   .menu_item {
-    padding: 30px 0 5px;
+    padding: 1rem 0;
     color: var(--secondary-color);
+    text-align: center;
   }
 
   .menu_item::after {
@@ -286,26 +324,6 @@ const { fr = false, page } = Astro.props;
     font-weight: 500;
   }
 
-  .social_title {
-    font-size: 2rem;
-    position: relative;
-    color: white;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-
-  .social_title::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -10px;
-    background-color: var(--accent-color);
-    height: 2px;
-    box-sizing: border-box;
-    width: 100%;
-  }
-
   /* language */
 
   .language {
@@ -314,13 +332,20 @@ const { fr = false, page } = Astro.props;
     justify-content: center;
   }
 
+  .language_text {
+    font-size: 2rem;
+    color: white;
+  }
   .language_link {
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .language_img {
-    width: min(8vw, 40px);
-    margin: 0px 10px;
+    width: 3rem;
+    margin-right: 10px;
     object-fit: contain;
   }
 
@@ -329,136 +354,63 @@ const { fr = false, page } = Astro.props;
     border-radius: 100%;
   }
 
-  /* hamburger */
-
-  .hamburger {
-    display: none;
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--secondary-color);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-tap-highlight-color: transparent;
+  @media (min-width: 2000px) {
+    .logo {
+      width: 200px;
+    }
   }
-
-  .hamburger i {
-    position: absolute;
-    color: var(--secondary-color);
-    font-size: 5rem;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    transition: all 0.3s ease;
+  @media (min-width: 1600px) {
+    .logo {
+      width: 180px;
+    }
   }
-
-  .hamburger i.close {
-    opacity: 0;
-  }
-
-  .hamburger--active {
-    background: var(--accent-color);
-  }
-
-  .hamburger--active i {
-    color: var(--secondary-color);
-    transform: translate(-50%, -50%) rotate(180deg);
-  }
-
-  .hamburger--active i.close {
-    opacity: 1;
-  }
-
-  .hamburger--active i.open {
-    opacity: 0;
-  }
-
   @media (max-width: 1100px) {
-    .navbar_link {
-      font-size: 1.2rem;
-    }
-
     .navbar_item {
-      margin: 0 11px;
+      margin: 0;
     }
   }
 
-  @media (max-width: 950px) {
+  @media (max-width: 800px) {
     .navbar {
       display: none;
     }
-    .language {
-      position: absolute;
-      right: 15%;
+    .logo {
+      width: 120px;
     }
-
-    .language_img {
-      margin: 0px 5px;
-    }
-
     .hamburger {
       display: block;
     }
-  }
-
-  @media (max-width: 615px) {
-    .menu {
-      background-color: rgba(0, 0, 0, 0.9);
-    }
-
-    .language {
-      position: absolute;
-      right: 20%;
-    }
-
-    .language_img {
-      margin: 0 3px;
-    }
-  }
-  @media (max-width: 340px) {
-    .language {
-      position: absolute;
-      right: 25%;
-    }
-
-    .language_img {
-      margin: 0 2px;
+    .language--desktop {
+      display: none;
     }
   }
 </style>
 
 <script>
-  const button = document.querySelector(".hamburger");
-  const menu = document.querySelector(".menu");
-  const containers = document.querySelectorAll(".container");
+  const cta = document.getElementById("cta");
+  const topBtn = document.getElementById("topBtn");
 
-  containers.forEach((container) =>
-    container.addEventListener("click", () => {
-      if (menu.classList.contains("menu--active")) {
-        toggleMenu();
-      }
-    })
-  );
+  window.onscroll = function () {
+    scrollFunction();
+  };
 
-  function toggleMenu() {
-    button.classList.toggle("hamburger--active");
-    menu.classList.toggle("menu--active");
-  }
-
-  function showMenu() {
-    if (window.innerWidth > 950) {
-      button.style.display = "none";
-      menu.style.display = "none";
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 2000 ||
+      document.documentElement.scrollTop > 2000
+    ) {
+      topBtn.style.display = "block";
+      cta.style.display = "block";
     } else {
-      button.style.display = "block";
-      menu.style.display = "block";
+      topBtn.style.display = "none";
+      cta.style.display = "none";
     }
   }
 
-  window.onload = () => showMenu();
-  window.addEventListener("resize", showMenu);
-  button.addEventListener("click", toggleMenu);
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  topBtn.addEventListener("click", topFunction);
 </script>

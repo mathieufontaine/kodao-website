@@ -11,6 +11,7 @@ export interface Props {
   white?: boolean;
   items?: string[];
   reversed?: boolean;
+  bold?: boolean;
 }
 
 const {
@@ -23,6 +24,7 @@ const {
   white,
   items,
   reversed = false,
+  bold = true,
 } = Astro.props;
 ---
 
@@ -41,7 +43,7 @@ const {
         <ul class="flex_list">
           {
             items?.map((item) => (
-              <li class="flex_key">
+              <li class={bold ? "flex_key flex_key--bold" : "flex_key"}>
                 <i
                   class={`fa-solid ${
                     title === "concept" ? "fa-infinity" : "fa-circle-notch"
@@ -55,7 +57,9 @@ const {
         {btnText && <Button btnHref={btnHref} btnText={btnText} type="flex" />}
       </div>
       <div
-        class={`flex_img ${reversed && "flex_img--first"}`}
+        class={`flex_img ${reversed && "flex_img--first"} ${
+          !bold && "flex_img--big"
+        }`}
         data-aos="fade-right"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="1000"
@@ -75,28 +79,22 @@ const {
     text-transform: uppercase;
     margin-bottom: 20px;
   }
-
-  .heading {
-    margin-bottom: 20px;
-  }
-
   .text {
-    margin: 20px 0;
+    margin-top: 20px;
     text-align: center;
   }
   .flex {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
     grid-gap: 20px;
     justify-content: space-around;
-    margin-top: 20px;
   }
 
   .flex_img {
-    width: 100%;
+    /* width: 40%; */
     margin: auto;
     height: 100%;
     max-height: 360px;
+    max-width: 360px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -104,13 +102,16 @@ const {
   .flex_img--first {
     order: -1;
   }
+  .flex_img--big {
+    max-width: 100%;
+  }
   .flex_img img {
     object-fit: contain;
   }
 
-  .flex_img:first img {
-    width: 80%;
-  }
+  /* .flex_img:first img {
+    width: 60%;
+  } */
 
   .flex_img--mobile {
     display: none;
@@ -127,13 +128,18 @@ const {
   }
   .flex_list {
     list-style: none;
-    padding: 0 30px;
+    margin: 20px 0;
+    width: 100%;
   }
 
   .flex_key {
-    padding: 10px;
+    padding: 10px 0;
     display: flex;
     gap: 15px;
+  }
+  .flex_key--bold p {
+    font-weight: 900;
+    font-size: larger;
   }
 
   .flex_key .fa-solid {
@@ -145,18 +151,19 @@ const {
     margin-right: 10px;
   }
 
-  @media (max-width: 800px) {
-    .flex {
-      grid-template-columns: 1fr;
-      padding-top: 10px;
-    }
+  @media (min-width: 1600px) {
     .flex_img {
-      order: 1;
+      max-height: 500px;
+      max-width: 500px;
     }
   }
   @media (max-width: 615px) {
-    .flex_list {
-      padding: 0;
+    .flex {
+      flex-direction: column;
+    }
+    .flex_img {
+      order: 1;
+      width: 100%;
     }
   }
 </style>
