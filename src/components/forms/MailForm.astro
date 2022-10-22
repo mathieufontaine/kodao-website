@@ -131,4 +131,29 @@
     font-size: 1.4rem;
     font-weight: 500;
   }
+
+  @media (max-width: 800px) {
+    .email-form_wrapper {
+      width: 100%;
+    }
+
+    .email {
+      text-align: center;
+    }
+    .email-form_btn {
+      width: 100%;
+    }
+  }
+  @media (max-width: 615px) {
+    .email-form_box {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .email-form_box {
+      height: auto;
+    }
+    .email-form_btn:hover {
+      transform: scale(100%);
+    }
+  }
 </style>

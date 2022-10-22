@@ -71,4 +71,12 @@ const { heading, intro, img, services } = Astro.props;
     margin: 20px;
     list-style-type: square;
   }
+  @media (max-width: 615px) {
+    .services {
+      width: 100%;
+    }
+    .services_img {
+      display: none;
+    }
+  }
 </style>

@@ -165,7 +165,7 @@ const { fr = false, page } = Astro.props;
   }
 
   .logo {
-    width: min(40vw, 250px);
+    width: min(30vw, 250px);
     object-fit: contain;
   }
 
@@ -319,7 +319,7 @@ const { fr = false, page } = Astro.props;
   }
 
   .language_img {
-    width: min(10vw, 40px);
+    width: min(8vw, 40px);
     margin: 0px 10px;
     object-fit: contain;
   }
@@ -334,8 +334,8 @@ const { fr = false, page } = Astro.props;
   .hamburger {
     display: none;
     position: relative;
-    height: 50px;
-    width: 50px;
+    width: 40px;
+    height: 40px;
     border: 1px solid var(--secondary-color);
     border-radius: 6px;
     cursor: pointer;
@@ -347,7 +347,7 @@ const { fr = false, page } = Astro.props;
   .hamburger i {
     position: absolute;
     color: var(--secondary-color);
-    font-size: 6rem;
+    font-size: 5rem;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -374,6 +374,59 @@ const { fr = false, page } = Astro.props;
 
   .hamburger--active i.open {
     opacity: 0;
+  }
+
+  @media (max-width: 1100px) {
+    .navbar_link {
+      font-size: 1.2rem;
+    }
+
+    .navbar_item {
+      margin: 0 11px;
+    }
+  }
+
+  @media (max-width: 950px) {
+    .navbar {
+      display: none;
+    }
+    .language {
+      position: absolute;
+      right: 15%;
+    }
+
+    .language_img {
+      margin: 0px 5px;
+    }
+
+    .hamburger {
+      display: block;
+    }
+  }
+
+  @media (max-width: 615px) {
+    .menu {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .language {
+      position: absolute;
+      right: 20%;
+    }
+
+    .language_img {
+      margin: 0 3px;
+    }
+  }
+  @media (max-width: 340px) {
+    .language {
+      position: absolute;
+      right: 25%;
+    }
+
+    .language_img {
+      margin: 0 2px;
+    }
   }
 </style>
 

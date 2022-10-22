@@ -23,7 +23,7 @@ const { teamMembers } = Astro.props;
 <section class="section section--about">
   <div class="container">
     <slot />
-    <div class="cards_container">
+    <div class="items_wrapper">
       {
         teamMembers.map((member) => (
           <CardTeam
@@ -39,7 +39,7 @@ const { teamMembers } = Astro.props;
 </section>
 
 <style>
-  .cards_container {
+  .items_wrapper {
     display: grid;
     justify-content: center;
     align-items: center;
@@ -51,5 +51,19 @@ const { teamMembers } = Astro.props;
     max-width: 1200px;
     margin: auto;
     color: var(--secondary-color);
+  }
+
+  @media (max-width: 800px) {
+    .items_wrapper {
+      grid-template-columns: 1fr;
+      height: auto;
+      padding: 20px;
+      width: 70%;
+    }
+  }
+  @media (max-width: 615px) {
+    .items_wrapper {
+      width: 100%;
+    }
   }
 </style>

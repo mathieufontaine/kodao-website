@@ -55,15 +55,6 @@ const { title, page } = Astro.props;
   .hero--faq {
     background-image: url("../../assets/pictures/blockchain.jpeg");
   }
-  .container--hero {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    width: 70%;
-    margin: auto;
-  }
 
   .hero_text {
     width: 80%;
@@ -100,14 +91,23 @@ const { title, page } = Astro.props;
     object-fit: fill;
   }
 
-  .page-intro {
-    height: 40vh;
+  @media (max-width: 950px) {
+    .hero--offers {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.55),
+          rgba(0, 0, 0, 0.55)
+        ),
+        url("../../assets/background/festival.jpeg");
+      background-position: center center;
+    }
   }
-
-  .page-intro .container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  @media (max-width: 615px) {
+    .hero {
+      background-attachment: scroll;
+      height: auto;
+    }
+    .hero_text {
+      width: 90%;
+    }
   }
 </style>

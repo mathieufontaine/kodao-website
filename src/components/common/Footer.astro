@@ -156,4 +156,39 @@ const { fr = false} = Astro.props;
     font-size: 1.1rem;
     margin-bottom: 10px;
   }
+  @media (max-width: 950px) {
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+}
+@media (max-width: 615px) {
+
+.footer_row {
+  flex-wrap: wrap;
+}
+.footer_col {
+  padding: 10px;
+}
+ul{
+  text-align: center;
+}
+.footer_heading::before {
+  left: 50%;
+}
+.footer_heading{
+  text-align: center;
+}
+.social-links {
+  grid-gap: 0;
+}
+}
+@media (max-width: 400px) {
+.footer_row {
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+}
 </style>

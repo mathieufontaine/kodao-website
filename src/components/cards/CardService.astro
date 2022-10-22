@@ -7,27 +7,27 @@ export interface Props {
 const { title, img } = Astro.props;
 ---
 
-<div class="collapsible" data-aos="fade-up" data-aos-duration="700">
-  <div type="button" class="collapsible_header">
-    <div class="collapsible_img">
+<div class="service" data-aos="fade-up" data-aos-duration="700">
+  <div type="button" class="service_header">
+    <div class="service_img">
       <img src={img} alt="startegie marketing web3" />
     </div>
-    <h3 class="collapsible_title">{title}</h3>
-    <i class="fa-solid fa-angle-down collapsible_arrow"></i>
-    <i class="fa-solid fa-angle-up collapsible_arrow"></i>
+    <h3 class="service_title">{title}</h3>
+    <i class="fa-solid fa-angle-down service_arrow"></i>
+    <i class="fa-solid fa-angle-up service_arrow"></i>
   </div>
-  <div class="collapsible_content">
+  <div class="service_content">
     <slot />
   </div>
 </div>
 
 <style>
-  .collapsible {
+  .service {
     outline: none;
     margin-bottom: 15px;
   }
 
-  .collapsible_header {
+  .service_header {
     background: white;
     border-bottom: 2px solid #330656;
     color: var(--primary-color);
@@ -39,15 +39,15 @@ const { title, img } = Astro.props;
     align-items: center;
   }
 
-  .collapsible_img {
+  .service_img {
     height: 100px;
   }
-  .collapsible_title {
+  .service_title {
     padding: 14px;
     font-size: 1.8rem;
   }
 
-  .collapsible_content {
+  .service_content {
     max-height: 0;
     padding: 0;
     overflow: hidden;
@@ -56,24 +56,22 @@ const { title, img } = Astro.props;
     color: var(--secondary-color);
   }
 
-  .collapsible_arrow {
+  .service_arrow {
     font-size: 25px;
     margin-right: 10px;
     text-align: right;
     color: black;
   }
 
-  .fa-angle-up.collapsible_arrow {
+  .fa-angle-up.service_arrow {
     display: none;
   }
 </style>
 
 <script>
-  const cards = document.querySelectorAll(".collapsible_header");
-  const arrowsUp = document.querySelectorAll(".fa-angle-up.collapsible_arrow");
-  const arrowsDown = document.querySelectorAll(
-    ".fa-angle-down.collapsible_arrow"
-  );
+  const cards = document.querySelectorAll(".service_header");
+  const arrowsUp = document.querySelectorAll(".fa-angle-up.service_arrow");
+  const arrowsDown = document.querySelectorAll(".fa-angle-down.service_arrow");
 
   cards.forEach((card, index) => {
     card.addEventListener("click", function () {

@@ -7,26 +7,20 @@ export interface Props {
 const { question, answerList } = Astro.props;
 ---
 
-<div class="faq_item">
-  <div class="faq_item-head">
-    <p class="faq_item-text">{question}</p>
-    <span class="faq_item-icon">
+<div class="card">
+  <div class="card-head">
+    <p class="card-text">{question}</p>
+    <span class="card-icon">
       <i class="fa fa-chevron-down"></i>
     </span>
   </div>
-  <div class="faq_item-body">
-    {answerList.map((answer) => <p class="faq_item-answer">{answer}</p>)}
+  <div class="card-body">
+    {answerList.map((answer) => <p class="card-answer">{answer}</p>)}
   </div>
 </div>
 
 <style>
-  .faq_title {
-    margin: 1rem 0 2.4rem 0;
-    text-align: center;
-    text-transform: capitalize;
-    font-size: 3.5rem;
-  }
-  .faq_item {
+  .card {
     margin-bottom: 20px;
     color: #fff;
     display: flex;
@@ -34,11 +28,11 @@ const { question, answerList } = Astro.props;
     align-items: center;
     width: 100%;
   }
-  .faq_item-text {
+  .card-text {
     font-size: 1.5rem;
     font-weight: 600;
   }
-  .faq_item-head {
+  .card-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,25 +44,25 @@ const { question, answerList } = Astro.props;
     transition: all 0.3s ease;
     cursor: pointer;
   }
-  .faq_item-head:hover {
+  .card-head:hover {
     box-shadow: 0 0 15px 0 rgba(168, 123, 203, 0.5);
   }
-  .faq_item-icon {
+  .card-icon {
     cursor: pointer;
   }
-  .faq_item-body {
+  .card-body {
     overflow: hidden;
     max-height: 0;
     background: rgba(201, 191, 209, 0.1);
     border-radius: 2px;
     transition: all 0.3s ease;
   }
-  .faq_item-answer {
+  .card-answer {
     margin: 10px;
     font-size: 1.4rem;
   }
 
-  .faq_item-answer--bullet {
+  .card-answer--bullet {
     list-style: square;
     font-weight: 300;
     font-size: 1.4rem;
@@ -82,18 +76,18 @@ const { question, answerList } = Astro.props;
 </style>
 
 <script>
-  const faqItemHead = document.querySelectorAll(".faq_item-head");
-  const faqItemBody = document.querySelectorAll(".faq_item-body");
+  const faqItemHead = document.querySelectorAll(".card-head");
+  const faqItemBody = document.querySelectorAll(".card-body");
   const faqItemicon = document.querySelectorAll(".fa.fa-chevron-down");
 
   faqItemHead.forEach((head, index) => {
     head.addEventListener("click", () => {
-      let icon = head.querySelector(".faq_item-icon").firstElementChild;
+      let icon = head.querySelector(".card-icon").firstElementChild;
       if (icon.classList.contains("fa-chevron-down")) {
         closeAllItems();
         head.nextElementSibling.classList.add("show-para");
         icon.className = "fa fa-chevron-up";
-      } else if (icon.classList.contains("fa fa-chevron-up")) {
+      } else if (icon.classList.contains("fa-chevron-up")) {
         closeAllItems();
       }
     });

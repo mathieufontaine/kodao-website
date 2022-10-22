@@ -20,8 +20,8 @@ const { title, socialItems } = Astro.props;
 
 <section class="section section--blue">
   <div class="container">
-    <h3>{title}</h3>
-    <div class="items_container">
+    <h3 class="heading">{title}</h3>
+    <div class="items_wrapper">
       {
         socialItems.map((item) => (
           <CardSocial
@@ -39,7 +39,7 @@ const { title, socialItems } = Astro.props;
 </section>
 
 <style>
-  .items_container {
+  .items_wrapper {
     z-index: 5;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -50,5 +50,21 @@ const { title, socialItems } = Astro.props;
     text-align: center;
     max-width: 1200px;
     margin: auto;
+  }
+  @media (max-width: 800px) {
+    .items_wrapper {
+      grid-template-columns: 1fr;
+      padding: 20px 10px;
+      gap: 20px;
+      width: 70%;
+    }
+    .heading {
+      text-align: center;
+    }
+  }
+  @media (max-width: 615px) {
+    .items_wrapper {
+      width: 100%;
+    }
   }
 </style>

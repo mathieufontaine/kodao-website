@@ -88,4 +88,25 @@ const { btnHref, btnText, type } = Astro.props;
     position: relative;
     /* font-size: 1.8rem; */
   }
+
+  @media (min-width: 1600px) {
+    .button {
+      width: 350px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .button--flex {
+      align-self: center;
+    }
+    .button {
+      /* width: auto; */
+      margin: 10px auto 0;
+    }
+  }
+  @media (max-width: 340px) {
+    .button {
+      width: 100%;
+    }
+  }
 </style>

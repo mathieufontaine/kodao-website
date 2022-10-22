@@ -83,4 +83,28 @@ const {
   .cta_btn--col {
     flex-direction: column;
   }
+
+  @media (max-width: 800px) {
+    .cta {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .cta {
+      grid-template-columns: 1fr;
+      grid-gap: 0;
+      text-align: center;
+    }
+    .cta_btn {
+      flex-direction: column;
+      order: 1;
+      padding: 0;
+    }
+  }
+  @media (max-width: 615px) {
+    .cta_text {
+      text-align: center;
+    }
+  }
 </style>

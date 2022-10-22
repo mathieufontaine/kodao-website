@@ -83,4 +83,59 @@ const { index, heading, img, text, reversed } = Astro.props;
     -o-transform: scale(1); /* Opera */
     transform: scale(1);
   }
+
+  @media (min-width: 1600px) {
+    .card {
+      width: 80%;
+    }
+
+    @media (max-width: 1100px) {
+      .card {
+        width: 100%;
+        margin: 10px 0px;
+      }
+    }
+  }
+  @media (max-width: 800px) {
+    .card {
+      width: 90%;
+      margin: 0px;
+      flex-direction: column;
+      background: none;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .card_layer {
+      width: 100%;
+      order: 1;
+      margin: auto;
+      height: 200px;
+      border-radius: 0;
+    }
+
+    .card_content {
+      padding: 0;
+    }
+
+    .card_text {
+      width: 100%;
+      order: -1;
+      /* text-align: center; */
+    }
+
+    .card_text p {
+      margin-top: 0;
+    }
+
+    .card_title {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 615px) {
+    .card {
+      padding: 0;
+    }
+  }
 </style>

@@ -149,11 +149,52 @@ button {
   background-position: center center;
 }
 
-/* mobile */
-
 .desktop-version {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 2000px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1600px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media (max-width: 800px) {
+  .desktop-version {
+    display: none;
+  }
+  .container {
+    padding: 30px;
+  }
+  .section--blue h3 {
+    width: 90%;
+    font-size: 3rem;
+  }
+}
+@media (max-width: 950px) {
+  html {
+    font-size: 9px;
+  }
+}
+@media (max-width: 615px) {
+  .section--about {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 340px) {
+  html {
+    font-size: 8px;
+  }
+  h1 {
+    font-size: 4rem;
+  }
 }
