@@ -1,69 +1,69 @@
 export const faqData = [
   {
-    question: "What is Kodao?",
+    question: "Qu'est ce que Kodao?",
     answerList: [
-      "Kodao is a web development and consulting agency helping organizations in all stages of their Web3 projects:",
-      "Creation of NFTs designs, Development of smartcontracts, websites and Web3 platform, Integration of Web3 tools, Marketing and strategic consulting",
+      "Kodao est une agence de développement web et de conseils, accompagnant les organisations dans toutes les étapes de leurs projets Web3:",
+      "Création des designs de NFTs, Développement de smartcontracts, sites et plateforme Web3, Intégration d'outils Web3, Conseil marketing et stratégique",
     ],
   },
   {
-    question: "What services do you offer?",
+    question: "Quels services proposez-vous?",
     answerList: [
-      "We offer different solutions that fit your needs:",
-      "Creation of NFTs designs, Development of smartcontracts, websites and Web3 platform, Integration of Web3 tools, Marketing and strategic consulting",
-      "The first offer corresponds to the Web3 Starter Pack, it is intended for all the organizations or all the creators wishing to give a new scale to their activity. This offer contains the essentials to start quickly and easily in Web3.",
-      ' The second is an "à la carte" service solution. It is intended for organizations wishing to take full advantage of Web3 and its infinite possibilities. It is customizable and will be defined according to your needs. You will have for example the possibility of having your own personalized Web3 platform and a support (marketing, strategic, technical...).',
-      " A demo of the Web3 platform will be available soon (date to be defined in the next few weeks).",
+      "Nous proposons différentes solutions adaptées à vos besoins :",
+      "Création des designs de NFTs, Développement de smartcontracts, sites et plateforme Web3, Intégration d'outils Web3, Conseil marketing et stratégique",
+      "La première offre correspond au Web3 Starter Pack, elle est destinée à toutes les organisations ou tous les créateurs souhaitant donner une nouvelle ampleur à leur activité. Cette offre contient les éléments essentiels pour démarrer rapidement et facilement dans Web3.",
+      "La seconde est une solution de service à la carte. Elle est destinée aux organisations qui souhaitent profiter pleinement du Web3 et de ses possibilités infinies. Elle est personnalisable et sera définie en fonction de vos besoins. Vous aurez par exemple la possibilité d'avoir votre propre plateforme Web3 personnalisée et un accompagnement (marketing, stratégique, technique...).",
+      "Une démonstration de la plateforme Web3 sera bientôt disponible (date à définir dans les prochaines semaines).",
     ],
   },
   {
-    question: "What is Web3?",
+    question: "Qu'est-ce que le Web3 ?",
     answerList: [
-      "The Web3 corresponds to the decentralized Web, which means that the data of a user does not pass through the servers of an intermediary (company, social network, brand ...). The data is anonymous and owned by the user. The Web3 gives much more freedom and power to users but it also implies more responsibilities.",
+      "Le Web3 correspond au Web décentralisé, ce qui signifie que les données d'un utilisateur ne passent pas par les serveurs d'un intermédiaire (entreprise, réseau social, marque...). Les données sont anonymes et appartiennent à l'utilisateur. Le Web3 donne beaucoup plus de liberté et de pouvoir aux utilisateurs mais il implique aussi plus de responsabilités.",
     ],
   },
   {
-    question: "What is an NFT?",
+    question: "Qu'est-ce qu'un NFT ?",
     answerList: [
-      'NFT stands for "non-fungible token". It is a token that cannot be replaced and therefore has a unique value. Any other non-fungible token that might be similar to it would be considered a copy. An NFT is a digital asset that acts as a digital property title linked to the blockchain.It is therefore impossible to copy it.',
-      "Example of a non-digital fungible asset: A 10€ bill (replaceable by another 10€ bill) Example of a non-digital non-fungible asset: The Mona Lisa (not replaceable)",
+      "NFT est l'abréviation de non-fungible token. Il s'agit d'un jeton qui ne peut être remplacé et qui a donc une valeur unique. Tout autre jeton non fongible qui lui serait similaire serait considéré comme une copie. Un NFT est un actif numérique qui agit comme un titre de propriété numérique lié à la blockchain, il est donc impossible de le copier.",
+      "Exemple d'un bien fongible non numérique : un billet de 10 euros (remplaçable par un autre billet de 10 euros). Exemple d'un bien non numérique non fongible : la Joconde (non remplaçable).",
     ],
   },
   {
-    question: "Is an NFT really useful?",
+    question: "Un NFT est-il vraiment utile ?",
     answerList: [
-      "The term NFT has been used for a very short time and is often compared to an image with no other use. In reality an NFT is a technology that offers solutions that were not possible to have before its existence. An NFT simply ensures the authenticity of a digital asset and secures its sale or purchase. The usefulness of an NFT is not based on the technology but rather on the way it is used.",
+      "Le terme NFT est utilisé depuis très peu de temps et est souvent comparé à une image sans autre utilité. En réalité, une NFT est une technologie qui offre des solutions qu'il était impossible d'avoir avant son existence. Une NFT garantit simplement l'authenticité d'un actif numérique et sécurise sa vente ou son achat. L'utilité d'une NFT ne repose pas sur la technologie mais plutôt sur la manière dont elle est utilisée.",
     ],
   },
   {
-    question: "Who are your services intended for?",
+    question: "À qui s'adressent vos services ?",
     answerList: [
-      "Our services are intended for any company, association, club or content creator with a community that wants to get into the Web3 ecosystem as soon as possible.",
-      "Web3 is a new and difficult subject to grasp. The transition may take a lot of time and effort but is inevitable.",
-      "Our services are therefore intended for those who wish to continue their activity while taking a first step towards Web3.",
+      "Nos services s'adressent à toute entreprise, association, club ou créateur de contenu avec une communauté qui souhaite entrer dans l'écosystème Web3 le plus rapidement possible.",
+      "Le Web3 est un sujet nouveau et difficile à appréhender. La transition peut prendre beaucoup de temps et d'efforts, mais elle est inévitable.",
+      "Nos services sont donc destinés à ceux qui souhaitent poursuivre leur activité tout en faisant un premier pas vers le Web3.",
     ],
   },
   {
-    question: "What blockchain are you working on?",
+    question: "Sur quelle blockchain travaillez-vous ?",
     answerList: [
-      "We are able to work on any compatible EVM (Ethereum Virtual Machine) blockchain. Today, we prefer the Polygon blockchain which is energy efficient and has low issuance and transaction costs.",
-      "As a comparison, the total annual energy consumption of the Polygon blockchain is equivalent to that of 200 French households.",
+      "Nous sommes capables de travailler sur n'importe quelle blockchain EVM (Ethereum Virtual Machine) compatible. Aujourd'hui, nous préférons la blockchain Polygon qui est économe en énergie et dont les coûts d'émission et de transaction sont faibles.",
+      "À titre de comparaison, la consommation annuelle totale d'énergie de la blockchain du Polygone est équivalente à celle de 200 ménages français.",
     ],
   },
   {
-    question: "What are your rates?",
+    question: "Quels sont vos tarifs ?",
     answerList: [
-      "The rates we offer may vary depending on your needs and the options you want to use.",
-      "Please contact us with your requirements via the contact form so that we can send you a quote or give you more details.",
+      "Les tarifs que nous proposons peuvent varier en fonction de vos besoins et des options que vous souhaitez utiliser.",
+      "Veuillez nous contacter avec vos besoins via le formulaire de contact afin que nous puissions vous envoyer un devis ou vous donner plus de détails.",
     ],
   },
   {
-    question: "Where to start?",
+    question: "Par où commencer ?",
     answerList: [
-      "More and more world-renowned companies are embarking on Web3 after identifying a new need in web usage.",
-      "At Kodao, we believe that in the future, Web3 will become more and more popular until it becomes the norm.",
-      "For many companies and creators, it is not easy to embark on this adventure for lack of means, tools, knowledge and time. This is why we have taken the step to make Web3 more accessible by creating Kodao.io.",
-      "All you have to do is contact us so that we can suggest you tools adapted to your community. We guarantee a response in less than 48 hours!",
+      "De plus en plus d'entreprises de renommée mondiale se lancent dans le Web3 après avoir identifié un nouveau besoin dans l'utilisation du Web.",
+      "Chez Kodao, nous pensons qu'à l'avenir, le Web3 deviendra de plus en plus populaire jusqu'à devenir la norme.",
+      "Pour de nombreuses entreprises et créateurs, il n'est pas facile de se lancer dans cette aventure par manque de moyens, d'outils, de connaissances et de temps. C'est pourquoi nous avons fait le pas de rendre le Web3 plus accessible en créant Kodao.io.",
+      "Il vous suffit de nous contacter pour que nous puissions vous proposer des outils adaptés à votre communauté. Nous vous garantissons une réponse en moins de 48 heures !",
     ],
   },
 ];
