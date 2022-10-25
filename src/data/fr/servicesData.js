@@ -7,69 +7,72 @@ import dao from "../assets/pictures/governance.jpg";
 
 export const servicesData = [
   {
-    title: "STRATEGY AND MARKETING",
+    title: "STRATEGIE & MARKETING",
     img: marketing,
     description:
-      "Kodao.io offers you a strategic and marketing support adapted to the Web3 environment all along the creation process of your project:",
+      "Kodao.io vour propose un accompagnement stratégique et marketing adapté à l'environnement Web3 tout au long du processus de création de votre projet:",
     list: [
-      "Introduction to Web3 training.",
-      "Understanding your needs and defining your goals",
-      "Selection of Web3 tools that are adapted to your strategy and permanent benchmark of the latest technologies in the industry.",
+      "Formation d'introduction au Web3.",
+      "Compréhension de vos besoins et définition de vos objectifs.",
+      "Choix des outils Web3 adaptés à votre stratégie et benchmark permanent des dernières technologies du marché.",
+      "Vision et stratégie à long terme pour garantir un lancement viable et réussi du projet Web3",
+      "Accompagnement sur les actions marketing à mener avant, pendant et après le lancement afin de communiquer efficacement auprès de votre communauté et continuer à faire vivre votre projet son lancement.",
     ],
   },
   {
-    title: "NFTs CREATION",
+    title: "CREATION DE NFT",
     img: nft,
     description:
-      "Creation of one or more collections (NFT type : ERC-721 and/or ERC-1155) according to the defined strategy.",
+      "Création d'une ou plusieurs collections de NFT de type ERC-721 (unique) et ERC-1155 (tiers) en fonction de la stratégie définie.",
     list: [
-      "Strategic planning and implementation of your NFTs campaign.",
-      "Design of the NFTs artwork inspired by your brand identity. (We can work with independant graphic designers or artists with experience in the field of NFTs).",
-      "Creation of the smart contracts and implementation on a compatible EVM blockchain.",
+      "Préparation stratégique et élaboration de votre campagne de NFTs.",
+      "Conception des visuels des NFTs inspirés de votre univers de marque et de votre charte graphique. (Possibilité de travailler avec des graphistes ou artistes indépendants ayant une expérience dans le domaine des NFTs.)",
+      "Création des smart contracts et déploiement sur une blockchain EVM compatible.",
+      "Définition des avantages pour les futurs propriétaires de votre art numérique.",
     ],
   },
   {
-    title: "WEB3 STORE DEVELOPMENT (MINT)",
+    title: "CREATION DE SITE WEB3 (VENTE)",
     img: store,
     description:
-      "Creation of one or more collections (NFT type : ERC-721 and/or ERC-1155) according to the defined strategy.",
+      "Création d'un site web3 de type store/landing page sur lequel sera présenté le projet. Chaque membre de votre communauté pourra également s'y connecter avec son wallet afin d'y acheter (mint) un des NFTs de votre collection.",
     list: [
-      "Development of a Web3 store/landing page on which your project and vision will be explained.",
-      "Each member of your community will be able to connect to it with his own wallet to buy (mint) one of the NFTs of your collection. Owners will have the possibility to view the NFT on the website.",
+      "Donner la possibilité à votre communauté d'acheter (mint) votre art numérique via le store.",
+      "Chaque membre pourra visualiser son NFT sur votre site.",
     ],
   },
   {
-    title: "WEB3 PLATFORM DEVELOPMENT",
+    title: "CREATION DE PLATEFORME WEB3",
     img: dev,
     description:
-      "Creation of your own unique Web3 ecosystem through the development of your own decentralized and fully customizable platform.This service will allow you to:",
+      "Création de votre propre écosystème Web3 unique via le développement de votre propre plateforme décentralisée et entièrement personnalisable. Ce service vous permettra de :",
     list: [
-      "Give exclusive benefits to your community members such as: exclusive content, schedule private events, organize contests and competitions, NFT staking etc.",
-      "Access a creator's area to manage all the actions implemented and view all the statistics of your community to measure the level of commitment.",
-      "You will also receive guidance in the management of this ecosystem.",
-      "This service includes the creation of your customized smart contracts and/or the integration of the latest Web3 tools available.",
+      "Donner des avantages exclusifs aux membres de votre communauté tels que : proposer du contenu exclusif, programmer des évènements privés, organiser des concours et des compétitions, staking de NFT etc...",
+      "Avoir accès à un espace créateur pour gérer toutes les actions mises en place et accéder à toutes les statistiques de votre communauté et et mesurer son engagement.",
+      "Vous bénéficierez également d'un accompagnement dans la gestion de cet écosystème.",
+      "Ce service comprend la création de vos smart contract personnalisés et/ou l'intégration des derniers outils Web3 disponibles.",
     ],
   },
   {
-    title: "WEB3 COMMUNITY SPACE",
+    title: "ESPACE COMMUNAUTAIRE WEB3",
     img: discord,
     description:
-      "Setup of a public (if not existing) and private discord with all necessary Web3 tools to animate your community and get closer to your most active members.",
+      "Création d'un chat public et privé avec tous les outils Web3 nécessaires pour animer votre communauté et vous rapprocher de vos membres les plus engagés.",
     list: [
-      "An introduction training to the management of a Web3 discord (strategy,security, moderation, bots integration ...).",
-      "Creation of the complete discord and all the channels necessary to launch the Web3 project.",
-      "Creation of a private holders group (private voice and text chat, exclusive content, announcements...) dedicated to owners of your digital art.",
+      "Formation d'introduction à la gestion d'un discord Web3 (stratégie, sécurité, modération, intégration de bots ...).",
+      "Création du discord complet et de l'ensemble des channels nécessaires au lancement du projet Web3.",
+      "Création d'une catégorie privée (chat textuel et vocal privé, contenu exclusif, annonces factice en avant première...)dédiée aux propriétaires de votre art numérique.",
     ],
   },
   {
-    title: "GOVERNANCE SPACE (DAO)",
+    title: "ESPACE DE GOUVERNANCE (DAO)",
     img: dao,
     description:
-      "Creation and integration of a decentralized governance space (DAO) fully customizable in terms of design and voting strategy.",
+      "Création et intégration d'un espace de gouvernance décentralisé (DAO) entièrement personnalisable en terme de design et de stratégie de vote.",
     list: [
-      "Registration of your decentralized domain name (ENS).",
-      "Creation of the governance space that will be integrated and customized on your Web3 platform with access to detailed statistics.",
-      "Voting strategy elaboration Voting strategy elaboration to define which aspects of your activity you wish toempower your community on(feedback, choice of future products or content, strategic decisions ...).",
+      "Création de votre propre adresse ENS.",
+      "Création de l'espace de gouvernance qui sera directement intégré et personnalisé sur votre plateforme Web3 avec un accès aux statistiques détaillées.",
+      "Elaboration de la stratégie de vote pour définir sur quels aspects de votre activité vous souhaitez donner plus de pouvoirs à votre communauté. (feedback, choix des futurs produits ou du contenu proposé, décisions stratégiques ...).",
     ],
   },
 ];

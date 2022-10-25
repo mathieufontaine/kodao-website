@@ -6,37 +6,37 @@ import dao from "../assets/pictures/dao.png";
 export const starterData = [
   {
     index: 1,
-    title: "NFT Collection",
+    title: "Collection de NFTs",
     img: nft,
     list: [
-      "Design of an ERC-1155 NFT collection (multiple owners per NFT) based",
-      "Deployment of audited smart contracts on a compatible EVM blockchain (Ethereum, Polygon, etc.).",
+      "Conception d'une collection de NFT de type ERC-1155 (plusieurs propriétaires par NFT) à partir de votre propre contenu ou création d'un design simple",
+      "Déploiement de smart contracts audités sur une blockchain EVM compatible (Ethereum, Polygon, etc..)",
     ],
   },
   {
     index: 2,
-    title: "NFT Mint Store",
+    title: "Site Web3 pour vendre vos NFTs",
     img: store,
     list: [
-      "Development of a Web3 store/landing page on which your project will be explained.",
-      "Each member of your community will be able to connect to it with his own wallet to buy (mint) one of the NFTs of your collection.",
+      "Création d'un site Web3 de type store/landing page sur lequel sera présenté votre projet",
+      "Chaque membre de votre communauté pourra s'y connecter avec son wallet afin d'y acheter (mint) un des NFTs de votre collection.",
     ],
   },
   {
     index: 3,
-    title: "Discord with Web3 Space",
+    title: "Discord avec Espace Web3",
     img: discord,
     list: [
-      "Setup of a public (if not existing) and private discord with all necessary Web3 tools to animate your community and get closer to your most active members.",
+      "Création d'un discord public (si non existant) et privé avec tous les outils Web3 nécessaires pour animer votre communauté et vous rapprocher de vos membres les plus engagés.",
     ],
   },
   {
     index: 4,
-    title: "Governance Space (Snapshot)",
+    title: "Espace Gouvernance (Snapshot)",
     img: dao,
     list: [
-      "Registration of your decentralized domain name (ENS).",
-      "Creation of your decentralized governance space (Snapshot) where each NFT holder will be able to vote on various community proposals.",
+      "Acquisition de votre nom de domaine décentralisé (ENS).",
+      "Création de votre espace de gouvernance décentralisé (Snapshot) sur lequel chaque détenteur du NFT pourra voter à différentes propositions communautaires.",
     ],
   },
 ];
