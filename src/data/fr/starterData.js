@@ -1,7 +1,7 @@
-import nft from "../assets/pictures/nft.png";
-import store from "../assets/pictures/shop.png";
-import discord from "../assets/pictures/discord2.png";
-import dao from "../assets/pictures/dao.png";
+import nft from "../../assets/pictures/nft.png";
+import store from "../../assets/pictures/shop.png";
+import discord from "../../assets/pictures/discord2.png";
+import dao from "../../assets/pictures/dao.png";
 
 export const starterData = [
   {

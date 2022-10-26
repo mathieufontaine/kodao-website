@@ -1,9 +1,9 @@
-import marketing from "../assets/pictures/web3-marketing.jpeg";
-import nft from "../assets/pictures/nft-design.jpeg";
-import store from "../assets/pictures/web3-mint-store.jpg";
-import dev from "../assets/pictures/web3-success.jpeg";
-import discord from "../assets/pictures/private-discord.jpeg";
-import dao from "../assets/pictures/governance.jpg";
+import marketing from "../../assets/pictures/web3-marketing.jpeg";
+import nft from "../../assets/pictures/nft-design.jpeg";
+import store from "../../assets/pictures/web3-mint-store.jpg";
+import dev from "../../assets/pictures/web3-success.jpeg";
+import discord from "../../assets/pictures/private-discord.jpeg";
+import dao from "../../assets/pictures/governance.jpg";
 
 export const servicesData = [
   {
