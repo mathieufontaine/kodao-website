@@ -1,0 +1,89 @@
+---
+// import { Post } from "../../../typings.d.ts";
+import { urlForImage } from "../../utils/sanity";
+
+export interface Props {
+  id: string;
+  title: string;
+  authorName?: string;
+  authorImg?: string;
+  publishedAt?: string;
+  mainImage?: string;
+  slug?: string;
+  categories?: [string];
+}
+
+const {
+  key,
+  title,
+  authorName,
+  authorImg,
+  publishedAt,
+  mainImage,
+  slug,
+  categories,
+} = Astro.props;
+
+console.log(
+  key,
+  title,
+  authorName,
+  // authorImg,
+  publishedAt,
+  // mainImage,
+  slug
+  // categories
+);
+---
+
+<a href={key} href={`/post/`}>
+  <!-- <a href={key} href={`/post/${slug}`}> -->
+  <div
+    class="w-full bg-white shadow rounded-md overflow-hidden cursor-pointer transition ease-in-out mx-auto hover:shadow-4xl group"
+  >
+    <!-- {
+      mainImage && (
+        <div class="relative pb-1/2 group-hover:scale-105 transition">
+          <img src={urlForImage(mainImage).url()} alt={mainImage.alt} />
+        </div>
+      )
+    } -->
+    <div class="p-8 overflow-hidden">
+      <div class="flex items-center justify-between gap-2 text-xs md:text-sm">
+        <div class="flex justify-end text-white gap-2">
+          <!-- {
+            categories?.map((tag) => (
+              <div class="bg-accent rounded-md p-2 text-center">{tag}</div>
+            ))
+          } -->
+        </div>
+        <div class="black">
+          <!-- {
+            new Date(publishedAt).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          } -->
+        </div>
+      </div>
+
+      <h4 class="text-xl md:text-2xl leading-relaxed mt-4">
+        {title}
+      </h4>
+      {
+        /* <p class="my-3 text-sm leading-loose">
+            {excerpt}
+            <span class="text-gray-400 p-3">Read more..</span>
+          </p> */
+      }
+
+      <div class="flex items-center">
+        <div class="relative w-10 h-10 mr-4 rounded-full overflow-hidden">
+          <!-- <img src={urlForImage(authorImg).url()} alt={authorName} /> -->
+        </div>
+        <!-- <span class="black ont-bold">{authorName}</span> -->
+      </div>
+    </div>
+  </div>
+</a>

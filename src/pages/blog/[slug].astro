@@ -1,0 +1,80 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import { useSanityClient } from "astro-sanity";
+import { sortPosts } from "../../utils/helpers";
+import { Post } from "../../utils/typings";
+
+import Cta from "../../components/sections/Cta.astro";
+import LatestPosts from "../../components/blog/LatestPosts.astro";
+import Article from "../../components/blog/Article.astro";
+import Sidebar from "../../components/blog/Sidebar.tsx";
+import RelatedPosts from "../../components/blog/RelatedPosts.tsx";
+// import Sidebar from "../../components/blog/Sidebar";
+// import Article from "../../components/blog/Article";
+
+interface Props {
+  posts: [Post];
+}
+
+export async function getStaticPaths() {
+  const queryAll = `*[_type == "post" && !(_id in path("drafts.**"))]{
+    _id,
+    title,
+    slug,
+    mainImage{asset->{url},alt},
+    body,
+    publishedAt,
+    "categories": categories[]->title,
+    "authorName":author->name,
+    "authorImage": author->image
+   }`;
+  const allPosts = await useSanityClient().fetch(queryAll);
+  return allPosts.map((post) => ({
+    params: { slug: post.slug.current },
+    props: { post },
+  }));
+}
+
+const queryAll = `*[_type == "post" && !(_id in path("drafts.**"))]{
+    _id,
+    title,
+    slug,
+    mainImage{asset->{url},alt},
+    body,
+    publishedAt,
+    "categories": categories[]->title,
+    "authorName":author->name,
+    "authorImage": author->image
+   }`;
+
+const allPosts = await useSanityClient().fetch(queryAll);
+const posts = sortPosts(allPosts);
+
+const latestPosts = posts.slice(0, 3);
+
+const { post } = Astro.props;
+---
+
+<Layout title="Kodao.io" page="blog">
+  <div class="top-[10vh] relative h-[300px] md:h-[400px] w-full md:mt-0">
+    <img class="absolute" src={post.mainImage.asset.url} alt={post.title} />
+  </div>
+  <section
+    class="md:grid md:grid-cols-[5fr_1fr] lg:grid-cols-[4fr_1fr] relative"
+  >
+    <Article title={post.title} body={post.body} />
+    <Sidebar post={post} />
+  </section>
+  <RelatedPosts posts={allPosts} category={post.categories[0]} />
+  <hr class="mx-auto md:h-[2px] md:bg-gray-200" />
+  <LatestPosts posts={latestPosts} />
+  <Cta
+    title="Kodao.io helps you get started in Web3!"
+    btnText="Discover our offers"
+    btnHref="/offers"
+    btnText2="Contact us"
+    btnHref2="./contact"
+    text="The Web3 allows to give much more freedom and and power to end users, creating an infinite number of possibilities for organizations and their communities. It's time to build, sell, innovate and share ! Get started with web3 now!"
+  />
+</Layout>

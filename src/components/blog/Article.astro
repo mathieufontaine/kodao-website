@@ -1,0 +1,21 @@
+---
+import PortableText from "./PortableText.astro";
+// import getYoutubeId from "get-youtube-id";
+
+const { title, body } = Astro.props;
+---
+
+<article class="bg-white text-black">
+  <div class="bg-gradient-to-r from-[#330656] to-black">
+    <h1
+      class="text-white p-10 text-6xl md:p-12 xl:p-15 font-bold mx-auto lg:max-w-[900px]"
+    >
+      {title}
+    </h1>
+  </div>
+  <div class="mx-auto p-10 md:p-12 xl:p-15 lg:max-w-[900px]">
+    <div class="pb-10">
+      <PortableText portableText={body} />
+    </div>
+  </div>
+</article>

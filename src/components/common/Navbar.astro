@@ -68,12 +68,7 @@ const { fr = false, page } = Astro.props;
         >
       </li>
       <li class="navbar_item navbar_item--blog">
-        <a
-          href="https://blog.kodao.io"
-          target="_blank"
-          id="nav-faq"
-          class="navbar_link">Blog</a
-        >
+        <a href="/blog" id="nav-faq" class="navbar_link">Blog</a>
       </li>
     </ul>
   </nav>
@@ -202,7 +197,7 @@ const { fr = false, page } = Astro.props;
   .navbar_item--blog {
     background: var(--secondary-color);
     color: var(--primary-color);
-    padding: 10px;
+    padding: 5px 10px;
     border-radius: 10px;
   }
 
