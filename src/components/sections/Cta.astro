@@ -3,12 +3,12 @@ import Button from "../common/Button.astro";
 
 export interface Props {
   title: string;
-  text: string;
+  text?: string;
   btnText?: string;
   btnHref?: string;
   btnText2?: string;
   btnHref2?: string;
-  white?: boolean;
+  background?: string;
   paddingTop?: boolean;
 }
 
@@ -19,20 +19,20 @@ const {
   btnHref,
   btnText2,
   btnHref2,
-  white = false,
+  background = false,
   paddingTop = false,
 } = Astro.props;
 ---
 
 <section
-  class={white ? "section section--white" : "section"}
+  class={background ? `section section--${background}` : "section"}
   style={paddingTop ? "padding-top: 150px" : ""}
 >
   <div class="container">
     <div class="cta">
       <div class="cta_text">
         <h2 class="cta_title">{title}</h2>
-        <p>{text}</p>
+        {text && <p>{text}</p>}
       </div>
       <div class="cta_btn">
         {

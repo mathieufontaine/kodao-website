@@ -11,7 +11,7 @@ const categories = [
 const Categories = ({ filterCategories, filterMobile, category, openMenu }) => {
   return (
     <section className="lg:sticky lg:top-0 relative z-10 bg-white">
-      <div className="container py-4">
+      <div className="container" style={{ paddingBottom: "0" }}>
         {/* mobile version */}
         <div className="md:hidden w-full">
           {categories.map((cat, index) => (

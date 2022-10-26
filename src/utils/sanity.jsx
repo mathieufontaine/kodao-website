@@ -3,8 +3,14 @@ import {
   createImageBuilder,
   portableTextToHtml,
 } from "astro-sanity";
+import getYoutubeId from "get-youtube-id";
 
-export const imageBuilder = createImageBuilder(useSanityClient());
+// export const imageBuilder = createImageBuilder(useSanityClient());
+
+const imageBuilder = createImageBuilder({
+  projectId: "v9diiubf",
+  dataset: "production",
+});
 
 export function urlForImage(source) {
   return imageBuilder.image(source);
@@ -26,6 +32,21 @@ export const textStyle = {
           />
         </picture>
       `;
+    },
+    youtube: ({ value }) => {
+      const id = getYoutubeId(value.url);
+      const url = `https://www.youtube.com/embed/${id}`;
+      if (!id) {
+        return <div>Missing Youtube URL</div>;
+      }
+      return `<iframe
+          class="block w-full lg:w-[600px] h-[400px] mx-auto mb-10"
+          src=${url}
+          title="YouTube Preview"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>`;
     },
   },
   block: {
@@ -65,30 +86,30 @@ export const textStyle = {
     // },
   },
 
-  list: {
-    bullet: ({ value }) => {
-      `<ul>
-        ${value}
-      </ul>`;
-    },
-    number: ({ value }) => {
-      ` <ol>
-        ${value}
-      </ol>`;
-    },
-  },
-  listItem: {
-    bullet: ({ value }) => {
-      `<ul>
-        ${value}
-      </ul>`;
-    },
-    number: ({ value }) => {
-      `<ol>
-        ${value}
-      </ol>`;
-    },
-  },
+  // list: {
+  //   bullet: ({ value }) => {
+  //     `<ul>
+  //       ${value.children[0].text}
+  //     </ul>`;
+  //   },
+  //   number: ({ value }) => {
+  //     ` <ol>
+  //       ${value.children[0].text}
+  //     </ol>`;
+  //   },
+  // },
+  // listItem: {
+  //   bullet: ({ value }) => {
+  //     `<li class="font-bold text-xl">
+  //       ${value.children[0].text}
+  //     </li>`;
+  //   },
+  //   number: ({ value }) => {
+  //     `<ol>
+  //       ${value.children[0].text}
+  //     </ol>`;
+  //   },
+  // },
   // mark: {
   //   code: (
   //     <code>
@@ -123,10 +144,17 @@ export const textStyle = {
   // },
   marks: {
     highlight: ({ children }) => <mark>{children}</mark>,
-    link: ({ value }) => {
+    link: ({ children, value }) => {
       return `<a class="text-accent" href=${value.href} ${
         value.blank && "target='_blank'"
-      } > ${value.href}</a>`;
+      } >${children}</a>`;
+    },
+    internalLink: ({ children, value }) => {
+      const { slug = {} } = value;
+      const href = `/blog/${slug.current}`;
+      return `<a class="text-accent" href=${href} ${
+        value.blank && "target='_blank'"
+      } >${children}</a>`;
     },
   },
 };

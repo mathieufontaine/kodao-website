@@ -1,25 +1,26 @@
 ---
-import line from "../../assets/formes/Ligne-purple.png";
+import Line from "../common/line.jsx";
+
 export interface Props {
   page: string;
   title: string;
+  subtitle?: string;
 }
-const { title, page } = Astro.props;
+const { page, title, subtitle } = Astro.props;
 ---
 
 <section class={`section hero hero--${page}`}>
   <div class="container">
     <div class="hero_text">
-      <h1
-        class="hero_title hero_title"
-        data-aos="zoom-in-down"
-        data-aos-duration="1000"
-      >
+      <h1 class="hero_title" data-aos="zoom-in-down" data-aos-duration="1000">
         {title}
       </h1>
-      <div class="hero_line">
-        <img class="hero_line" src={line} alt="web3 communities" />
-      </div>
+      <Line />
+      {
+        subtitle && (
+          <h2 class="mt-10 text-4xl text-center font-bold pb-0">{subtitle}</h2>
+        )
+      }
     </div>
   </div>
 </section>
@@ -81,18 +82,6 @@ const { title, page } = Astro.props;
     text-transform: uppercase;
     text-align: center;
     color: #ffffff;
-  }
-
-  .hero_line {
-    display: flex;
-    align-items: center;
-    position: relative;
-    width: 70%;
-    pointer-events: none;
-    margin: 10px auto;
-  }
-  .hero_line img {
-    object-fit: fill;
   }
 
   @media (max-width: 950px) {

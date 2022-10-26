@@ -4,6 +4,7 @@
   --primary-color: black;
   --secondary-color: white;
   --accent-color: #a87bcb;
+  --dark-accent-color: #330656;
   --blue-color: #091834;
   --placeholder-color: #818181;
   --bg-color: #000;
@@ -71,6 +72,11 @@ b,
 strong {
   font-weight: 500;
 }
+
+article a {
+  font-weight: 500;
+  color: var(--accent-color);
+}
 ul {
   list-style: none;
 }
@@ -89,7 +95,7 @@ button {
 }
 
 mark {
-  background-color: var(--accent-color);
+  background-color: var(--dark-accent-color);
   color: var(--secondary-color);
 }
 
@@ -118,7 +124,9 @@ article ul {
 }
 
 article li {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
+  font-weight: 400;
+  color: var(--dark-accent-color);
 }
 
 article li:first-child {
@@ -130,7 +138,7 @@ article li:last-child {
 }
 
 article ol li::marker {
-  color: var(--accent-color);
+  color: var(--dark-accent-color);
   font-size: 1.8rem;
   margin-right: 0.5rem;
 }
@@ -140,7 +148,7 @@ article ul li::before {
   width: 1.8rem;
   height: 1.8rem;
   border-radius: 50%;
-  color: var(--accent-color);
+  color: var(--dark-accent-color);
   margin-right: 0.5rem;
 }
 
@@ -212,6 +220,18 @@ article ul li::before {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 70%;
+  pointer-events: none;
+  margin: 10px auto;
+}
+.line img {
+  object-fit: fill;
 }
 
 @media (min-width: 2000px) {
