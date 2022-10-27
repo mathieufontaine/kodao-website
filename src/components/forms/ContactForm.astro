@@ -96,9 +96,9 @@ const { fr } = Astro.props;
               />
               <label for="budget">Budget : *</label>
               <select class="form_input form_select" name="budget">
-                <option value="-5k">{">"}5K</option>
+                <option value="-5k">{"<"}5K</option>
                 <option selected value="5k-10k">5K€ - 10K€</option>
-                <option value="+10k"> {"<"}10K€</option>
+                <option value="+10k"> {">"}10K€</option>
               </select>
             </div>
             <div id="createur">
@@ -112,9 +112,9 @@ const { fr } = Astro.props;
               />
               <label for="budget">Budget : *</label>
               <select class="form_input form_select" name="budget">
-                <option value="-5k">{">"}5K</option>
+                <option value="-5k">{"<"}5K</option>
                 <option selected value="5k-10k">5K€ - 10K€</option>
-                <option value="+10k"> {"<"}10K€</option>
+                <option value="+10k"> {">"}10K€</option>
               </select>
             </div>
           </div>
@@ -285,11 +285,14 @@ const { fr } = Astro.props;
   }
 
   #success-msg {
+    display: none;
     color: var(--secondary-color);
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 500;
     line-height: 40px;
+    padding: 20px;
+    background-color: rgb(26, 141, 26);
   }
 
   #error {
@@ -417,10 +420,14 @@ const { fr } = Astro.props;
           : "Your request has been sent! Thank you. </br> It will be processed by our team as soon as possible.";
         formInner.style.display = "none";
         inputs.forEach((input) => (input.style.display = "none"));
-        // alert(
-        //   "Your request has been sent! Thank you. It will be processed by our team as soon as possible."
-        // );
-        window.scrollTo(0, 0);
+        successMsg.style.display = "block";
+        fr
+          ? alert(
+              "Votre demande a bien été envoyée ! Merci. Elle sera traitée par notre équipe dans les meilleurs délais."
+            )
+          : alert(
+              "Your request has been sent! Thank you. It will be processed by our team as soon as possible."
+            );
       })
       .catch((error) => {
         form.innerHTML = `<div class="form--error">Error: ${error}</div>`;
