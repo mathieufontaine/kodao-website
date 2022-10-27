@@ -51,7 +51,12 @@ const { post, posts } = Astro.props;
     <Article title={post.title} body={post.body} />
     <Sidebar post={post} />
   </section>
-  <RelatedPosts posts={posts} category={post.categories[0]} />
+  <RelatedPosts
+    client:load
+    posts={posts}
+    post={post}
+    category={post.categories[0]}
+  />
   <hr class="mx-auto md:h-[2px] md:bg-gray-200" />
   <LatestPosts client:load posts={posts} post={post} />
   <Cta

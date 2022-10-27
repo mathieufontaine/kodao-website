@@ -335,7 +335,7 @@ const { fr = false, page } = Astro.props;
 </style>
 
 <script>
-  const cta = document.getElementById("cta");
+  // const cta = document.getElementById("cta");
   const topBtn = document.getElementById("topBtn");
 
   window.onscroll = function () {
@@ -348,10 +348,10 @@ const { fr = false, page } = Astro.props;
       document.documentElement.scrollTop > 2000
     ) {
       topBtn.style.display = "block";
-      cta.style.display = "block";
+      // cta.style.display = "block";
     } else {
       topBtn.style.display = "none";
-      cta.style.display = "none";
+      // cta.style.display = "none";
     }
   }
 
