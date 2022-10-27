@@ -8,7 +8,6 @@ interface Props {
 }
 
 const Sidebar = ({ post }: Props) => {
-  console.log(post);
   const tweet = encodeURIComponent(
     `Check out this great article on Kodao.io! ${post.title}`
   );
@@ -98,7 +97,7 @@ const Sidebar = ({ post }: Props) => {
             Kodao.io supports you in all the steps of your project.
           </p>
           <a
-            href="https://www.kodao.io"
+            href="/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full"

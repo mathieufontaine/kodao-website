@@ -72,19 +72,31 @@ const { fr = false, page } = Astro.props;
       </li>
     </ul>
   </nav>
-  <div class="language language--desktop">
-    {
-      fr ? (
-        <a href="/" class="language_link">
-          <img class="language_img" src={englishFlag} alt="english flag" />
-        </a>
-      ) : (
-        <a href="/fr" class="language_link">
-          <img class="language_img" src={frenchFlag} alt="drapeau français" />
-        </a>
-      )
-    }
-  </div>
+  {
+    page !== "blog" && (
+      <div class="language language--desktop">
+        {fr ? (
+          <a href={page === "home" ? "/" : `/${page}`} class="language_link">
+            <img class="language_img" src={englishFlag} alt="english flag" />
+          </a>
+        ) : (
+          <a
+            href={
+              page === "home"
+                ? "/fr"
+                : page === "offers"
+                ? "/fr/offres"
+                : `/fr/${page}`
+            }
+            class="language_link"
+          >
+            <img class="language_img" src={frenchFlag} alt="drapeau français" />
+          </a>
+        )}
+      </div>
+    )
+  }
+
   <div class="hamburger">
     <i class="bx bx-menu open"></i>
     <i class="bx bx-x close"></i>
@@ -197,13 +209,18 @@ const { fr = false, page } = Astro.props;
   .navbar_item--blog {
     background: var(--secondary-color);
     color: var(--primary-color);
-    padding: 5px 10px;
     border-radius: 10px;
+  }
+  .navbar_item--blog .navbar_link {
+    padding: 10px;
   }
 
   .navbar_item--blog:hover {
     background: var(--accent-color);
     color: var(--secondary-color);
+  }
+  .navbar_item--blog:hover::after {
+    width: 0;
   }
 
   /* hamburger */
@@ -253,70 +270,6 @@ const { fr = false, page } = Astro.props;
 
   .hamburger--active i.open {
     opacity: 0;
-  }
-  /* Menu */
-
-  .menu {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 10vh;
-    right: -100%;
-    min-height: 90vh;
-    width: 50%;
-    z-index: 100;
-    padding: 8%;
-    background-color: rgba(0, 0, 0, 0.8);
-    transition: all 0.5s ease-in-out;
-  }
-
-  .menu--active {
-    display: block;
-    right: 0;
-  }
-
-  .menu_list {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  .menu_item {
-    padding: 1rem 0;
-    color: var(--secondary-color);
-    text-align: center;
-  }
-
-  .menu_item::after {
-    content: "";
-    height: 2px;
-    width: 0%;
-    background: var(--secondary-color);
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    transition: 0.5s;
-  }
-
-  .menu_item:hover::after {
-    width: 100%;
-  }
-
-  .navbar_item--blog:after,
-  .menu_item--blog:after {
-    height: 0;
-  }
-
-  .menu_item--active .menu_link {
-    color: var(--accent-color);
-  }
-
-  .menu_item--social {
-    margin: auto 0 50px;
-  }
-  .menu_link {
-    font-size: 2rem;
-    font-weight: 500;
   }
 
   /* language */

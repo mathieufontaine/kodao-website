@@ -18,9 +18,9 @@ const RelatedPosts = ({ posts, category }: Props) => {
   return (
     <section className="container p-6 md:p-10 xl:p-15">
       <h3 className="text-white">
-        Related Articles: <span class="black">{`"${category}"`}</span>
+        Related Articles: <span className="black">{`"${category}"`}</span>
       </h3>
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 lg:gap-8 gap-3 mx-auto w-full">
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 lg:gap-8 gap-3 mx-auto w-full">
         {relatedPosts?.map((post) => (
           <div>
             <CardPostRow post={post} />

@@ -6,7 +6,6 @@ export interface Props {
 }
 
 const CardPost = ({ post }: Props) => {
-  console.log(post);
   return (
     <a href={`/blog/${post.slug?.current}`}>
       <div className="w-full bg-white shadow rounded-md overflow-hidden cursor-pointer transition ease-in-out mx-auto hover:shadow-4xl group">
@@ -28,7 +27,7 @@ const CardPost = ({ post }: Props) => {
                 </div>
               ))}
             </div>
-            <p className="black">
+            <p className="black text-lg">
               {new Date(post.publishedAt).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",

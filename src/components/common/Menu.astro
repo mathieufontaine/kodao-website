@@ -46,21 +46,36 @@ const { fr, page, englishFlag, frenchFlag } = Astro.props;
     </li>
   </ul>
   <div>
-    <div class="language">
-      {
-        fr ? (
-          <a href="/" class="language_link">
-            <img class="language_img" src={englishFlag} alt="english flag" />{" "}
-            <span class="language_text">EN</span>
-          </a>
-        ) : (
-          <a href="/fr" class="language_link">
-            <img class="language_img" src={frenchFlag} alt="drapeau français" />{" "}
-            <span class="language_text">FR</span>
-          </a>
-        )
-      }
-    </div>
+    {
+      page !== "blog" && (
+        <div class="language">
+          {fr ? (
+            <a href={page === "home" ? "/" : `/${page}`} class="language_link">
+              <img class="language_img" src={englishFlag} alt="english flag" />{" "}
+              <span class="language_text">EN</span>
+            </a>
+          ) : (
+            <a
+              href={
+                page === "home"
+                  ? "/fr"
+                  : page === "offers"
+                  ? "/fr/offres"
+                  : `/fr/${page}`
+              }
+              class="language_link"
+            >
+              <img
+                class="language_img"
+                src={frenchFlag}
+                alt="drapeau français"
+              />{" "}
+              <span class="language_text">FR</span>
+            </a>
+          )}
+        </div>
+      )
+    }
     <div class="menu_item menu_item--social">
       <p class="social_title">Follow Us</p>
       <div class="social-links">

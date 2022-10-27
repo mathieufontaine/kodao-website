@@ -20,7 +20,6 @@ const { heading, title, background } = Astro.props;
 
 <style>
   .text {
-    width: 80%;
     text-align: center;
   }
 
@@ -64,9 +63,9 @@ const { heading, title, background } = Astro.props;
     width: 100%;
   }
 
-  @media (max-width: 800px) {
+  @media (min-width: 1600px) {
     .text {
-      width: 100%;
+      width: 80%;
     }
   }
   @media (max-width: 615px) {

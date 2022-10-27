@@ -11,7 +11,7 @@ export const socialData = [
     cta: "Rejoindre",
   },
   {
-    href: "https://blog.kodao.io",
+    href: "/blog",
     title: "Kodao Blog",
     description:
       "Consultez notre blog consacré au Web3 et apprenez-en plus sur cette revolution technologique.",

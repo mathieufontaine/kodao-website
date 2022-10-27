@@ -41,14 +41,14 @@ const { teamMembers } = Astro.props;
 <style>
   .items_wrapper {
     display: grid;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     padding: 30px;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
+    grid-gap: 30px;
     text-align: center;
     transition: 1s all ease-in-out;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: auto;
     color: var(--secondary-color);
   }
@@ -58,7 +58,7 @@ const { teamMembers } = Astro.props;
       grid-template-columns: 1fr;
       height: auto;
       padding: 20px;
-      width: 70%;
+      width: 80%;
     }
   }
   @media (max-width: 615px) {

@@ -8,10 +8,11 @@ export default defineConfig({
     tailwind(),
     react(),
     sanity({
-      dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
       projectId: "v9diiubf",
-      token: process.env.SANITY_API_TOKEN,
-      useCDN: process.env.NODE_ENV === "production",
+      dataset: process.env.PUBLIC_SANITY_DATASET || "production",
+      // token: process.env.PUBLIC_SANITY_API_TOKEN,
+      useCDN: process.env.NODE_ENV || "production",
+      apiVersion: "2022-05-13",
     }),
   ],
 });
