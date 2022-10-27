@@ -55,7 +55,7 @@ const { fr } = Astro.props;
               >{fr ? "Partenariat" : "Partnership"}</option
             >
             <option value="other"
-              >{fr ? "AUtre demande" : "Other request"}</option
+              >{fr ? "Autre demande" : "Other request"}</option
             >
           </select>
           <div class="form_client">
@@ -90,7 +90,6 @@ const { fr } = Astro.props;
               <label for="social">{fr ? "Site Web " : "Website"}: *</label>
               <input
                 class="form_input website"
-                type="website"
                 id="client-orga"
                 name="client-orga"
                 placeholder="www.yourwebsite.com"
@@ -101,11 +100,10 @@ const { fr } = Astro.props;
                 <option selected value="5k-10k">5K€ - 10K€</option>
                 <option value="+10k"> {"<"}10K€</option>
               </select>
-            </div>{fr ? "" : ""}
+            </div>
             <div id="createur">
               <input
                 class="form_input"
-                type="social"
                 id="social"
                 name="social"
                 placeholder={fr
@@ -157,7 +155,6 @@ const { fr } = Astro.props;
             >
             <input
               class="form_input website"
-              type="website"
               id="partenaire-web"
               name="partenaire-web"
               placeholder={fr
@@ -251,6 +248,8 @@ const { fr } = Astro.props;
     border: none;
     margin: 10px 0 15px;
     outline: none;
+    font-size: 1.6rem;
+    border: 3px solid white;
   }
 
   .form_select {
@@ -280,8 +279,8 @@ const { fr } = Astro.props;
     color: rgb(205, 205, 205);
   }
 
-  .contact_response {
-    margin: 10px auto;
+  .contact_responses {
+    margin: 24px auto 0;
     width: 100%;
   }
 
@@ -294,9 +293,12 @@ const { fr } = Astro.props;
   }
 
   #error {
-    color: rgb(203, 34, 68);
-    text-shadow: 1px 1px black;
+    display: none;
     font-size: 1.8rem;
+    text-align: center;
+    padding: 12px;
+    color: white;
+    background-color: rgb(203, 34, 68);
   }
 
   textarea.form_input {
@@ -328,7 +330,7 @@ const { fr } = Astro.props;
   }
 </style>
 
-<script>
+<script define:vars={{ fr }}>
   const name = document.getElementById("name");
   const email = document.getElementById("email");
   const social = document.getElementById("social");
@@ -340,10 +342,7 @@ const { fr } = Astro.props;
   const submitBtn = document.getElementById("submit");
   const inputs = contactForm.querySelectorAll(".form_input");
   const subject = document.getElementById("subject");
-
   const clientOrga = document.getElementById("client-orga");
-  const partenaireOrga = document.getElementById("partenaire-orga");
-  const clientWeb = document.getElementById("client-web");
   const partenaireWeb = document.getElementById("partenaire-web");
 
   const border = "3px solid rgb(161, 30, 56)";
@@ -352,53 +351,44 @@ const { fr } = Astro.props;
     e.preventDefault();
 
     if (name.value.length < 3) {
-      errorElement.innerHTML = "Your name must have at least 3 characters.";
-      name.style.border = border;
-      return false;
-    }
-
-    if (!(email.value.includes(".") && email.value.includes("@"))) {
-      errorElement.innerHTML = "This e-mail address is not valid";
-      email.style.border = border;
-      return false;
-    }
-
-    if (!emailIsValid(email.value)) {
-      errorElement.innerHTML = "This e-mail address is not valid";
-      email.style.border = border;
-      return false;
-    }
-    if (subject.value === "default") {
-      errorElement.innerHTML = "Please choose a request type";
-      subject.style.border = border;
-      return false;
+      errorElement.innerHTML = fr
+        ? "Votre nom doit faire au moins 3 caractères"
+        : "Your name must have at least 3 characters.";
+      return applyErrorStyle(name);
     }
     if (
-      subject.value === "starter" ||
-      (subject.value === "full" && clientOrga.value === "default")
+      !emailIsValid(email.value) ||
+      !(email.value.includes(".") && email.value.includes("@"))
     ) {
-      errorElement.innerHTML = "Please enter your type of organization";
-      clientOrga.style.border = border;
-      return false;
+      errorElement.innerHTML = fr
+        ? "Cette adresse email n'est pas valide"
+        : "This e-mail address is not valid";
+      return applyErrorStyle(email);
     }
-    if (subject.value === "partenaire" && partenaireOrga.value === "default") {
-      errorElement.innerHTML = "Please enter your type of organization";
-      partenaireOrga.style.border = border;
-      return false;
+    if (subject.value === "default") {
+      errorElement.innerHTML = fr
+        ? "Veuillez choisir un type de demande"
+        : "Please choose a request type";
+      return applyErrorStyle(subject);
+    }
+    if (subject.value !== "other" && clientOrga.value === "default") {
+      errorElement.innerHTML = fr
+        ? "Veuillez renseigner votre type d'organisation"
+        : "Please enter your type of organization";
+      return applyErrorStyle(clientOrga);
     }
     if (subject.value === "partenaire" && partenaireWeb.value.length < 3) {
-      errorElement.innerHTML =
-        "Please provide a link to your website or social network";
-      partenaireWeb.style.border = border;
-      return false;
+      errorElement.innerHTML = fr
+        ? "Veuillez renseigner un lien vers votre site ou réseau social"
+        : "Please provide a link to your website or social network";
+      return applyErrorStyle(subject);
     }
-
     if (message.value.length < 10) {
-      errorElement.innerHTML = "Your message must be at least 10 characters";
-      message.style.border = border;
-      return false;
+      errorElement.innerHTML = fr
+        ? "Votre message doit faire au moins 10 caractères"
+        : "Your message must be at least 10 characters";
+      return applyErrorStyle(message);
     }
-
     processForm(contactForm);
   };
 
@@ -406,8 +396,12 @@ const { fr } = Astro.props;
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
-  //* Send Form + Show Success Message
+  const applyErrorStyle = (input) => {
+    input.style.border = border;
+    errorElement.style.display = "block";
+  };
 
+  //* Send Form + Show Success Message
   const processForm = (form) => {
     const data = new FormData(form);
     data.append("form-name", "contact");
@@ -418,8 +412,9 @@ const { fr } = Astro.props;
     })
       .then(() => {
         errorElement.innerHTML = "";
-        successMsg.innerHTML =
-          "Your request has been sent! Thank you. </br> It will be processed by our team as soon as possible.";
+        successMsg.innerHTML = fr
+          ? "Votre demande a bien été envoyée ! Merci. </br>Elle sera traitée par notre équipe dans les meilleurs délais."
+          : "Your request has been sent! Thank you. </br> It will be processed by our team as soon as possible.";
         formInner.style.display = "none";
         inputs.forEach((input) => (input.style.display = "none"));
         // alert(
@@ -437,13 +432,13 @@ const { fr } = Astro.props;
   inputs.forEach((input) =>
     input.addEventListener("focus", (e) => {
       e.target.style.border = "3px solid black";
-      errorElement.innerHTML = "";
+      errorElement.style.display = "none";
     })
   );
 
   inputs.forEach((input) =>
     input.addEventListener("blur", (e) => {
-      e.target.style.border = "none";
+      e.target.style.border = "3px solid white";
     })
   );
 
