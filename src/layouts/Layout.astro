@@ -42,12 +42,6 @@ const { page, title, fr = false } = Astro.props;
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <!-- Javascript -->
-    <script
-      src="https://kit.fontawesome.com/39251cc2ac.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../scripts/menu.js"></script>
     <title>{title}</title>
   </head>
 
@@ -55,6 +49,12 @@ const { page, title, fr = false } = Astro.props;
     <Navbar fr={fr} page={page} />
     <slot />
     <Footer fr={fr} />
+    <!-- Javascript -->
+    <script
+      src="https://kit.fontawesome.com/39251cc2ac.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../scripts/menu.js"></script>
     <script>
       import AOS from "aos";
       import "aos/dist/aos.css";
